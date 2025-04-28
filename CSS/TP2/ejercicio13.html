@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 13</title>
+    <style>
+        .input {
+            border: 1px solid #C5C5C5;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            color: #666;
+            padding: 5px;
+        }
+
+        .botones {
+            border: 1px solid #CACACA;
+            font-family: Arial, sans-serif;
+            font-size: 17px;
+            color: #666666;
+            padding: 5px 10px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+
+<body body bgcolor="#F4EDE1" text=#3E3E3E link="green" vlink="green" alink="red">
+
+    <table border="1" width="100%">
+        <tr>
+            <!-- navbar -->
+            <td colspan="2" valign="center">
+                <img src="../../HTML/TP2/imagenes/inmobiliariaLogo.jpg" align="left" width=166 height=129
+                    alt="Logo de la empresa">
+                <h1 align="center">Inmobiliaria prueba</h1>
+            </td>
+
+        </tr>
+
+        <tr>
+            <!-- parte del alquiler -->
+            <td width=20% align="center"><a href="../TP2/Ejercicio 7/inmublesAlquiler.html">Alquiler</a></td>
+
+            <!-- acá se cambia el contenido -->
+            <td rowspan="2">
+                <h2>Inmobiliara formulario:</h2>
+                <form>
+                    Nombre:
+                    <input type="text" class="input" name="nombre" maxlength="25"><br><br>
+
+                    Apellido:
+                    <input type="text" class="input" name="apellido" maxlength="25"><br><br>
+
+                    Dirección:<br>
+                    <textarea name="direccion" class="input" maxlength="30" rows="2" cols="30"></textarea><br><br>
+
+                    Teléfono:
+                    <input type="text" class="input" name="telefono" maxlength="15" value="0299"><br><br>
+
+                    Tipo de operación:<br>
+                    <input type="radio" name="operacion" value="alquiler"> Alquiler<br>
+                    <input type="radio" name="operacion" value="compra" checked> Compra<br><br>
+
+                    Zonas preferidas:<br>
+                    <input type="checkbox" name="zona" value="centro" checked> Zona Centro<br>
+                    <input type="checkbox" name="zona" value="norte"> Zona Norte<br>
+                    <input type="checkbox" name="zona" value="sur" checked> Zona Sur<br><br>
+
+                    Comentario del inmueble que busca:<br>
+                    <textarea name="comentario" class="input" rows="4" cols="40"></textarea><br><br>
+
+                    <input type="reset" value="Resetear" class="botones">
+                    <input type="submit" value="Enviar" class="botones">
+
+                </form>
+            </td>
+        </tr>
+
+        <tr>
+            <!-- parte de la compra-->
+            <td width=20% align="center"><a href="../TP2/Ejercicio 7/inmueblesVenta.html">Compra</a></td>
+        </tr>
+
+        <tr>
+            <!-- footer -->
+            <td colspan="2" align="center">
+                <h4>Inmobiliaria Carlitos | Acceso legal | Av Corrientes 1234 | Contacto: InmobiliariaPrueba@example.com
+                    o llamando al número +54 123 4561 789</h4>
+            </td>
+
+        </tr>
+
+
+
+
+    </table>
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
