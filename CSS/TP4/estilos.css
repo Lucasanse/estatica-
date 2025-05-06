@@ -1,0 +1,81 @@
+body{
+    margin:0;
+    padding:0;
+    font-family: sans, "lucida grande", tahoma, verdana, sans-serif;
+    font-size: 11px;
+    background-color: white;
+    color: black;
+
+}
+
+
+#intro {
+    float: right;
+    width: 80%;
+    
+  }
+
+  #linkList {
+    float: left;
+    width: 20%;
+    position: absolute; /*esto hace que esté arriba a la izquierda*/
+
+  }
+  
+  #supportingText {
+    float: right;
+    width: 80%;
+  }
+
+  #pageHeader h1{
+    padding: 10px;
+    border: 2px solid black;
+    background-color: #ddd;
+  }
+
+  #pageHeader h2 {
+    padding: 15px;
+    border: 1px solid gray;
+    margin-top: -10px; /* solapamiento */
+  }
+
+  #lresources ul{
+   list-style-type: none;
+  }
+
+  #lresources a {
+    font-weight: bold;
+    color: #036;
+    
+  }
+  
+  #lresources a:hover {
+    background-color: #036;
+    color: #9cf;
+  }
+
+  #previousDesign {
+    float: left;
+  }
+
+
+
+  #lselect li {
+    list-style-image: url('blue_bullet.gif');
+  }
+
+  #pageHeader h1 {
+    background-image: url('css_zen_garden.gif');
+    background-position: 10px 10px;
+  }
+
+  #pageHeader h2{
+    background-image: url('zen_h2_back.gif') ;
+    background-position: right top;
+  }
+
+  /* 
+  Preguntas:
+  como se modifica en una lista sin modificar el html para posicionar los elementos de esa lista (ultimo punto del ej3)
+  
+  ultimos dos ejercicios del ej4 es al body?*/
