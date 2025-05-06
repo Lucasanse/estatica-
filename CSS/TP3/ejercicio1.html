@@ -9,20 +9,15 @@
         .cuadro {
             background-color: darkgrey;
             padding: 10px 20px;
-            overflow: hidden; /* El contenedor se expande para que entre todo*/
-            /* la otra es controlar el width y el height manualmente del contenedor
-            width: 100%;
-            height: 30px;
+            display: flex;
+            flex-direction: row; /* aca lo que decimos es que el eje primario es el horizontal*/
+            justify-content: space-between;
+
+            /*
+            Se acomoda con display dentro del contenedor principal y el .cuadro se amolda a los divs
+            con el justify content space between ------ completar con la teoria ------
             */
             
-        }
-
-        .izq {
-            float: left;
-        }
-
-        .der {
-            float: right;
         }
     </style>
 </head>
