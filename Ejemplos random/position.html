@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejemplos de Position en CSS</title>
+  <style>
+    body {
+      height: 2000px; /* Para ver el efecto de fixed y sticky */
+      padding: 50px;
+      font-family: sans-serif;
+    }
+
+    .container {
+      position: relative;
+      border: 2px solid black;
+      padding: 20px;
+      margin-bottom: 50px;
+      height: 300px;
+      background: #f0f0f0;
+    }
+
+    .static {
+      position: static;
+      background-color: lightgray;
+    }
+
+    .relative {
+      position: relative;
+      top: 20px;
+      left: 20px;
+      background-color: lightblue;
+    }
+
+    .absolute {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: lightcoral;
+    }
+
+    .fixed {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background-color: gold;
+      padding: 10px;
+    }
+
+    .sticky {
+      position: sticky;
+      top: 0;
+      background-color: limegreen;
+      padding: 10px;
+    }
+
+    .parent {
+      position: relative;
+    }
+
+    .child-inherit {
+      position: inherit;
+      background-color: plum;
+    }
+
+    div {
+      padding: 10px;
+      margin: 5px;
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="fixed">Fixed (siempre visible en la esquina)</div>
+
+  <div class="container">
+    <div class="static">Static (posición por defecto)</div>
+    <div class="relative">Relative (desplazado pero ocupa el mismo espacio)</div>
+    <div class="absolute">Absolute (respecto al contenedor más cercano con posición relativa)</div>
+    <div class="sticky">Sticky (se pega al top al hacer scroll)</div>
+  </div>
+
+  <div class="parent">
+    <div class="child-inherit">Inherit (hereda la posición del padre: relative)</div>
+  </div>
+
+</body>
+</html>
