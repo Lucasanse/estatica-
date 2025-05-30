@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        var nom, ape, ec, edad, fn, dni, confirmar;
+        nom = prompt("Pone tu nombre");
+
+        ape = prompt("Pone tu apellido");
+
+        ec = prompt("Pone tu estado civil");
+
+        edad = prompt("Pone tu edad");
+
+        fn = prompt("Pone tu fecha de nacimiento");
+
+        dni = prompt("Pone tu DNI");
+
+        confirmar = confirm("¿Querés que tus datos sean impresos?");
+        if (confirmar) {
+            document.write("Datos personales" + "<br>");
+            document.write("Nombre: " + nom + "<br>");
+            document.write("Apellido: " + ape + "<br>");
+            document.write("Estado civil: " + ec + "<br>");
+            document.write("Edad: " + edad + "<br>");
+            document.write("Fecha de nacimiento: " + fn + "<br>");
+            document.write("DNI: " + dni + "<br>");
+            alert("tus datos fueron impresos");
+        } else{
+            alert("tus datos NO fueron impresos");
+        }
+        
+
+
+    </script>
+</body>
+
+</html>
