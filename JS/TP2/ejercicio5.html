@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5</title>
+    <script type="text/javascript" src="EjJavaScript005.js"></script>
+</head>
+
+<body>
+    <label for="">Número 1:</label>
+    <input type="number" name="numero1" id="n1">
+    <br>
+    <label for="">Número 2:</label>
+    <input type="number" name="numero2" id="n2">
+    <br>
+
+
+    <button onclick="sumar()">Sumar</button>
+     <button onclick="restar()">restar</button>
+     <button onclick="multiplicar()">multiplicacion</button>
+      <button onclick="dividir()">division</button>
+      <button onclick="potenciar()">potencia</button>
+      <button onclick="hacerCuadrado()">cuadrado</button>
+
+
+      
+
+    <h2> Resultados</h2>
+
+    <textarea id="salida" name="salida" rows="10" cols="50"></textarea>
+
+    <h2>Convertir valores</h2>
+    <ul>
+        <li>Valor dolar: $1200</li>
+        <li>Valor real: $209,98</li>
+        <li>Valor euro: $1.347,52</li>
+    </ul>
+
+    <label for="">Valor:</label>
+    <input type="number" name="valor" id="num">
+    <select name="svalores" id="selectValores">
+        <option value=""></option>
+        <option value="PD">De peso a dolar</option>
+        <option value="DP">De dolar a peso</option>
+        <option value="PR">De pesos a reales</option>
+        <option value="RP">De reales a pesos</option>
+        <option value="PE">De pesos a euros</option>
+        <option value="EP">De euros a pesos</option>
+    </select>
+    <br>
+    <textarea id="salidaC" name="salida" rows="10" cols="50"></textarea>
+    <br>
+    <button onclick="convertir()">convertir</button>
+
+</body>
+
+</html>
