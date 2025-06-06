@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Meses del Calendario</title>
+</head>
+
+<body>
+    <h1>Meses del Calendario</h1>
+
+    <h2>Usando for</h2>
+    <ul>
+        <div id="for"></div>
+    </ul>
+
+    <h2>Usando while</h2>
+    <ul>
+        <div id="while"></div>
+    </ul>
+
+    <h2>Usando do while</h2>
+    <ul>
+        <div id="dowhile"></div>
+    </ul>
+
+    <h2>Usando for in</h2>
+    <ul>
+        <div id="forin"></div>
+    </ul>
+
+    <h2>Numeros pares hasta menores a 500</h2>
+    <div id="pares"></div>
+
+    <h2>función f(x) = 3 * x + 5 – x^2</h2>
+    <div id="fun"></div>
+
+    <script>
+        var i = 0;
+        var meses = [
+            "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+            "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+        ];
+
+        //ejemplo for
+        for (i = 0; i < meses.length; i++) {
+            document.getElementById("for").innerHTML += "<li>" + meses[i] + "</li>";
+
+        }
+        i = 0;
+        //ejemplo while
+        while (i < meses.length) {
+            document.getElementById("while").innerHTML += "<li>" + meses[i] + "</li>";
+            i++;
+        }
+
+        i = 0;
+
+        //ejemplo do while
+        do {
+            document.getElementById("dowhile").innerHTML += "<li>" + meses[i] + "</li>";
+            i++;
+        } while (i < meses.length);
+
+        i = 0;
+        //ejemplo for in
+        for (i in meses) {
+            document.getElementById("forin").innerHTML += "<li>" + meses[i] + "</li>";
+        }
+
+        i = 0;
+
+        //pares menores a 500
+        while (i < 500) {
+            if (i % 2 == 0) {
+                document.getElementById("pares").innerHTML += i + " ";
+            }
+            i++
+        }
+
+        i = 0;
+        // función f(x) = 3 * x + 5 – x^2
+        while (i < 100) {
+            let res = (3 * i) + 5 - (Math.pow(i,2));  
+            document.getElementById("fun").innerHTML += res + " ";
+            
+            i++
+        }
+
+
+
+    </script>
+</body>
+
+</html>

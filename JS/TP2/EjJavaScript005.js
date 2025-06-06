@@ -74,36 +74,79 @@ function convertir() {
 
     switch (opcionSeleccionada.value) {
         case "PD":
-            resultado = valor/1200;
-            salida.value += '$'+valor + 'ARS seria un total de $' + resultado.toFixed(2) + 'USD \n';
+            resultado = valor / 1200;
+            salida.value += '$' + valor + 'ARS seria un total de $' + resultado.toFixed(2) + 'USD \n';
             break;
         case "DP":
-            resultado = valor*1200;
-            salida.value += '$'+valor + 'USD seria un total de $' + resultado.toFixed(2) + 'ARS \n';
+            resultado = valor * 1200;
+            salida.value += '$' + valor + 'USD seria un total de $' + resultado.toFixed(2) + 'ARS \n';
             break;
         case "PR":
-            resultado = valor/209,98;
-            salida.value += '$'+valor + 'ARS seria un total de $' + resultado.toFixed(2) + ' Reales \n';
-            console.log("Elegiste pr");
+            resultado = valor / 209, 98;
+            salida.value += '$' + valor + 'ARS seria un total de $' + resultado.toFixed(2) + ' Reales \n';
             break;
         case "RP":
-            resultado = valor*209,98;
-            salida.value += '$'+valor + ' Reales seria un total de $' + resultado.toFixed(2) + 'ARS \n';
-            console.log("Elegiste rp");
+            resultado = valor * 209, 98;
+            salida.value += '$' + valor + ' Reales seria un total de $' + resultado.toFixed(2) + 'ARS \n';
             break;
         case "PE":
-            resultado = valor/1.347,52;
-            salida.value += '$'+valor + 'ARS seria un total de $' + resultado.toFixed(2) + ' Euros \n';
+            resultado = valor / 1.347, 52;
+            salida.value += '$' + valor + 'ARS seria un total de $' + resultado.toFixed(2) + ' Euros \n';
             break;
         case "EP":
-            resultado = valor*1.347,52;
-            salida.value += '$'+valor + ' Euros seria un total de $' + resultado.toFixed(2) + 'ARS \n';
+            resultado = valor * 1.347, 52;
+            salida.value += '$' + valor + ' Euros seria un total de $' + resultado.toFixed(2) + 'ARS \n';
             break;
         default:
             alert("Selecciona algo che pibe");
     }
 
+}
 
+function valorSeleccionado() {
+    input = document.getElementById("n1");
+    n1 = parseInt(input.value);
+    salida = document.getElementById("salida");
+    switch (true) {
+        case (n1 < 0):
+            salida.value += 'El valor es: -1 \n';
+            break;
+        case (n1 >= 0 && n1 < 10):
+            salida.value += 'El valor es: 0 \n';
+            break;
+        case (n1 >= 10 && n1 < 50):
+            salida.value += 'El valor es: 1 \n';
+            break;
+        case (n1 >= 50 && n1 < 100):
+            salida.value += 'El valor es: 2 \n';
+            break;
+        case (n1 >= 100):
+            salida.value += 'El valor es: 3 \n';
+            break;
+        default:
+            salida.value += 'Inserte valor en número 1 \n';
+            break;
+
+
+    }
+}
+
+function hacerFactorial() {
+    var input = document.getElementById("n1");
+    var n1 = parseInt(input.value);
+    var salida = document.getElementById("salida");
+    var res = factorial(n1);
+    salida.value += 'El factorial de ' + n1 + ' es: ' + res + '\n';
+
+}
+
+function factorial(n) {
+    if(n<=0){
+        return 1;
+    } else { 
+        n = n * factorial(n-1);
+    }
+    return n; 
 }
 
 

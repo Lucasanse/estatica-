@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mouse</title>
+</head>
+
+<body>
+    <h2>Lista</h2>
+    <ul>
+        <li>Blanco</li>
+        <li onmousemove="cambiarColor(this,'negro')" onmouseout="cambiarColor(this,'blanco')">Negro</li>
+        <li onmousemove="cambiarColor(this,'azul')" onmouseout="cambiarColor(this,'blanco')">Azul</li>
+        <li onmousemove="cambiarColor(this,'rojo')" onmouseout="cambiarColor(this,'blanco')">Rojo</li>
+        <li onmousemove="cambiarColor(this,'amarillo')" onmouseout="cambiarColor(this,'blanco')">Amarillo</li>
+    </ul>
+
+    <h2>Provincias:</h2>
+
+    <ul>
+        <li>
+            <span onclick="mostrarOcultarCiudades(this)">Neuquén</span> <u>-</u>
+            <ul>
+                <li>Neuquén</li>
+                <li>Zapala</li>
+                <li>San Martín</li>
+                <li>Junín</li>
+            </ul>
+        </li>
+
+        <li>
+            <span onclick="mostrarOcultarCiudades(this)">Río Negro </span> <u>-</u>
+            <ul>
+                <li>Cipolletti</li>
+                <li>Fernández Oro</li>
+                <li>Cinco Saltos</li>
+                <li>Gral. Roca</li>
+                <li>Allen</li>
+            </ul>
+        </li>
+
+        <li>
+            <span onclick="mostrarOcultarCiudades(this)">Buenos Aires </span> <u>-</u>
+            <ul>
+                <li>La Plata</li>
+                <li>Mar del Plata</li>
+                <li>Necochea</li>
+            </ul>
+        </li>
+    </ul>
+
+    <script>
+        function mostrarOcultarCiudades(elemento) {
+            var listaCiudades = elemento.nextElementSibling.nextElementSibling;
+            //este es el elemento <u> y el sibling del sibling es la lista de ciudades
+            var elMenos = elemento.nextElementSibling;
+            if (listaCiudades.style.display === 'none') {
+                listaCiudades.style.display = 'block';
+                elMenos.style.display = 'inline';
+                elemento.style.textDecoration = 'none';
+                
+            } else {
+                listaCiudades.style.display = 'none';
+                elMenos.style.display = 'none';
+                elemento.style.textDecoration = 'underline';
+            }
+        }
+
+        function cambiarColor(elemento, color) {
+
+            switch (color) {
+                case "blanco":
+                    elemento.style.backgroundColor = "#fff";
+                    break;
+                case "negro":
+                    elemento.style.backgroundColor = "#000";
+                    break;
+                case "azul":
+                    elemento.style.backgroundColor = "blue";
+                    break;
+                case "rojo":
+                    elemento.style.backgroundColor = "red";
+                    break;
+                case "amarillo":
+                    elemento.style.backgroundColor = "yellow";
+                    break;
+                default:
+                    break;
+
+            }
+        }
+
+    </script>
+
+
+
+</body>
+
+</html>

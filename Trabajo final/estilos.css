@@ -1,0 +1,102 @@
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fdfcfc;
+}
+
+header {
+    background-color: #6a1b1a;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    /* <- permite que los hijos salten de línea */
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logo {
+    flex: 1 1 250px;
+    /* <- permite que se reduzca hasta cierto punto */
+    display: flex;
+    align-items: center;
+}
+
+#logo img {
+    width: 100px;
+    margin-right: 10px;
+}
+
+.nav-container {
+    flex: 1 1 250px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    /* opcional si el contenido se desborda */
+
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 0.5rem;
+}
+
+nav a:hover {
+  transform: scale(2.2); /* agranda un 10% al pasar el mouse */
+}
+
+
+.icono-carrito {
+    font-size: 1.2rem;
+    margin-left: 1rem;
+    cursor: pointer;
+}
+
+.hero {
+    background-color: #8e2b2b;
+    color: white;
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+.productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    padding: 2rem;
+}
+
+.tarjeta {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+    margin-left: 15px;
+}
+
+.tarjeta:hover {
+    transform: scale(1.02);
+}
+
+.tarjeta img {
+    width: 100%;
+    height: 200px;
+}
+
+.tarjeta-contenido {
+    padding: 1rem;
+}
+
+.tarjeta-contenido h3 {
+    margin-top: 0;
+    color: #6a1b1a;
+}
+
+.footer {
+    background-color: #4a0e0e;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
