@@ -54,12 +54,17 @@ nav a:hover {
     cursor: pointer;
 }
 
-.hero {
+.banner {
     background-color: #8e2b2b;
     color: white;
     text-align: center;
     padding: 3rem 1rem;
 }
+.banner h2{
+     font-size: 40px;
+}
+
+
 
 .productos {
     display: flex;
