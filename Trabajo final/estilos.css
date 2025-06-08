@@ -62,18 +62,20 @@ nav a:hover {
 }
 
 .productos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5em;
     padding: 2rem;
 }
 
 .tarjeta {
+    width: 300px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s;
-    margin-left: 15px;
 }
 
 .tarjeta:hover {
