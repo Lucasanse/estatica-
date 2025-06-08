@@ -87,12 +87,13 @@ function error(elem) {
     tieneErrores = true;
 
 }
-
+//limpia los errores que quedaron de antes
 function limpiar(elem) {
     elem.style.backgroundColor = "";
     elem.style.border = "";
 }
 
+//Verifica si el email tiene @ y luego un .
 function verificarMail(cadena) {
     var res = true;
     var partes = cadena.split("@");
@@ -117,7 +118,7 @@ function esSoloNumeros(cadena) {
 }
 
 
-
+//Verifica si la fecha existe
 function verificarFecha(dia, mes, anio) {
     var res = true;
     if (mes < 0 || mes > 12) {
