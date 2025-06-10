@@ -149,5 +149,8 @@ function factorial(n) {
     return n; 
 }
 
-
+function navegador(){
+    document.write("AAAAAAAAAAAAAAA "+navigator.appCodeName);
+    
+}
 

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 9</title>
+</head>
+
+<body>
+    <label for="">Ingrese texto:</label>
+    <input type="text" id="texto">
+    <br>
+    <button onclick="convertirTexto()">Convertir texto</button>
+    <h2> Resultados</h2>
+
+    <textarea id="salida" name="salida" rows="10" cols="1000"></textarea>
+
+    <script>
+        function convertirTexto() {
+            input = document.getElementById("texto");
+            txt = input.value;
+            salida = document.getElementById("salida");
+
+            salida.value += "Texto en mayuscula: " + txt.toUpperCase() + "\n"
+            salida.value += "Texto en minuscula: " + txt.toLowerCase() + "\n"
+            salida.value += "Mensaje que comienza el la posición 5 y de largo 10: " + txt.substr(5,10) + "\n"
+            if(txt.indexOf("hola")>0){
+                 salida.value += "Hola que tal \n";
+            }
+            salida.value += "Eliminando espacios en blanco y hola: " + txt.replace(/ /g, "").replace(/hola/g, "") + "\n";
+             salida.value += "traducir en ingles " + txt.replace(/hola/g, "hello").replace(/mi/g, "my").replace(/nombre/g,"name").replace(/es/g,"is") + "\n";
+        }
+
+    </script>
+</body>
+
+</html>

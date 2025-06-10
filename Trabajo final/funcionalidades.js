@@ -4,7 +4,7 @@ const productosGuardados = JSON.parse(localStorage.getItem('productos'));
 //mostrar por pantalla productos destacados
 mostrarProductos(obtenerDestacados(productosGuardados), "destacados");
 mostrarProductos(obtenerDiaDelPadre(productosGuardados), "diaPadre");
-mostrarProductos(productosGuardados, "todos");
+mostrarProductos(productosGuardados, "filtros");
 
 //mostrar por pantalla productos del dia del padre
 
@@ -46,4 +46,21 @@ function mostrarProductos(productosGuardados, id) {
         console.warn('No se encontraron productos en localStorage.');
     }
 
+}
+
+function filtrarPorCategoria(categoria) {
+
+    var productosFiltrados;
+
+    if (categoria === "todas") {
+        productosFiltrados = productosGuardados;
+    } else {
+        productosFiltrados = productosGuardados.filter(p => p.categoria === categoria);
+    }
+
+    // Limpiar el contenedor antes de volver a mostrar
+    const contenedor = document.getElementById("filtros");
+    contenedor.innerHTML = "";
+
+    mostrarProductos(productosFiltrados, "filtros");
 }

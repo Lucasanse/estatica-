@@ -81,6 +81,8 @@ nav a:hover {
     justify-content: center;
     gap: 1.5em;
     padding: 2rem;
+    flex: 1;
+
 }
 
 .tarjeta {
@@ -153,4 +155,41 @@ p.precio{
     font-weight: bold;
     font-size: 20px;
 }
+
+.contenedor-principal {
+  display: flex;
+  padding: 50px;
+}
+
+.filtros {
+  width: 200px;
+  padding: 10px;
+  border-right: 2px solid #ccc;
+}
+
+
+.filtros ul {
+  list-style: none;
+  padding: 0;
+}
+
+.filtros ul li {
+  margin-bottom: 10px;
+}
+
+.filtros button {
+  width: 100%;
+  padding: 8px;
+  background-color: #eee;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.filtros button:hover {
+  background-color: #ddd;
+}
+
+
 

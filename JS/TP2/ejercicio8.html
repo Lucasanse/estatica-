@@ -51,7 +51,29 @@
         </li>
     </ul>
 
+    <button onclick="navegador()" > Clic aca para ver que navegador tenes</button>
+
+    <div id="aviso"></div>
     <script>
+        function navegador() {
+            switch(navigator.appName){
+                case "Microsoft Internet Explorer":
+                    window.open("http://www.microsoft.com/ie");
+                    break;
+                case "Firefox":
+                    window.open("https://www.mozilla.org/es-ES/firefox/new/");
+                    break;
+                case "Konkeror": 
+                    window.open("http://konqueror.org ");
+                    break;
+                default:
+                    
+                    document.getElementById("aviso").innerHTML = "No se encontró el browser";
+            }
+           
+
+        }
+
         function mostrarOcultarCiudades(elemento) {
             var listaCiudades = elemento.nextElementSibling.nextElementSibling;
             //este es el elemento <u> y el sibling del sibling es la lista de ciudades
@@ -60,7 +82,7 @@
                 listaCiudades.style.display = 'block';
                 elMenos.style.display = 'inline';
                 elemento.style.textDecoration = 'none';
-                
+
             } else {
                 listaCiudades.style.display = 'none';
                 elMenos.style.display = 'none';
