@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fecha actual</title>
+</head>
+<body>
+    <div id="fecha"></div>
+
+    <h1> Chat </h1>
+    <hr>
+    <label for="nom">Nombre:</label>
+    <input type="text" id="nom"> <br><br>
+    <textarea name="" id="txt" cols="50" rows="10"></textarea> <br>
+    <button onclick="enviarMensaje()"> Enviar mensaje</button>
+
+    <div id="chat"></div>
+
+    <script>
+        var elemento = document.getElementById("fecha");
+        var fechaActual = new Date();
+        elemento.innerHTML = "Hoy es: " + fechaActual.getDate() + "/" + (fechaActual.getMonth() + 1) + "/" + fechaActual.getFullYear()
+                            + " y son las: " + fechaActual.getHours() + ":" + fechaActual.getMinutes() + ":" + fechaActual.getSeconds() + " | ";
+        
+        
+       var objetivo = new Date(2025, 5, 17, 17, 0, 0); // 17/06/2025 a las 17:00:00
+
+        // Calcular diferencia en milisegundos
+        var diferencia = objetivo - fechaActual;
+
+            const segundos = Math.floor(diferencia / 1000) % 60;
+            const minutos = Math.floor(diferencia / (1000 * 60)) % 60;
+            const horas = Math.floor(diferencia / (1000 * 60 * 60)) % 24;
+            const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+
+
+        elemento.innerHTML += ` Faltan ${dias} días, ${horas} horas, ${minutos} minutos y ${segundos} segundos para el 17/06 a las 17:00 hs.`;
+
+        function enviarMensaje(){
+            var nombre = document.getElementById("nom").value;
+            
+            var contenido = document.getElementById("txt");
+            var fechaActual = new Date();
+            var fechaTxt = `${fechaActual.getDate()}/${fechaActual.getMonth() + 1}/${fechaActual.getFullYear()} 
+                            ${fechaActual.getHours()}:${fechaActual.getMinutes()}:${fechaActual.getSeconds()}`;
+            
+            document.getElementById("chat").innerHTML+="<p>" + fechaTxt + " por: " + nombre + "<br>" + contenido.value +"</p>";
+            contenido.value = "";
+            contenido.focus();
+
+        }
+
+        
+    </script>
+</body>
+</html>
