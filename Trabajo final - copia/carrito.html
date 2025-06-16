@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <script src="productos.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body onload="mostrarCarrito()">
+    <div id="principal">
+        <header>
+            <div id="logo">
+                <img src="img/Logo Original.png" alt="" id="logoPrincipal">
+                <h1>Computación</h1>
+            </div>
+            <div class="nav-container">
+                <nav>
+                    <a href="index.html">Inicio</a>
+                    <a href="productos.html">Productos</a>
+                    <a href="#contacto">Contacto</a>
+                    <a href="#contacto">Servicio Técnico</a>
+                </nav>
+                <a href="carrito.html">
+                    <div class="icono-carrito">
+                        <img src="img/carrito.png" alt="carrito">
+                    </div>
+                </a>
+            </div>
+        </header>
+        </header>
+        <h2 style="text-align:center">Carrito de Compras</h2>
+        <table id="carritoTable">
+            <thead>
+                <tr>
+                    <th>Imagen</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Acción</th> <!-- Nueva columna -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Se llenará dinámicamente -->
+            </tbody>
+        </table>
+
+        <div class="resumen-pedido">
+            <h2>Resumen del pedido</h2>
+
+            <label for="metodo-envio">Método de entrega:</label>
+            <select id="metodo-envio" onchange="mostrarCampoCodigoPostal()">
+                <option value="default"></option>
+                <option value="sucursal">Retirar en sucursal</option>
+                <option value="envio">Envío a domicilio</option>
+            </select>
+
+            <div id="datos-envio">
+                <label for="codigo-postal">Coloque su código postal:</label>
+                <input type="text" id="codigo-postal" placeholder="Ej: 8300">
+                <button class="boton-calcular">Calcular envío</button>
+            </div>
+
+            <label for="codigo-promocional">Código promocional:</label>
+            <input type="text" id="codigo-promocional" placeholder="Ingresá tu código">
+            <button class="boton-verificar">Verificar código</button>
+
+            <div id="totalCarrito"> </div>
+            <button class="boton-abonar">Abonar</button>
+        </div>
+
+
+
+    </div>
+    <footer class="footer">
+        <p>2025 &copy; JS computación. Todos los derechos reservados. Allen | Rio Negro</p>
+    </footer>
+
+
+    <script src="funcionalidades.js"></script>
+</body>
+
+</html>
