@@ -145,9 +145,7 @@ function eliminarDelCarrito(index) {
 
 function actualizarCantidad(index, nuevaCantidad) {
 
-
     if (nuevaCantidad < 1) nuevaCantidad = 1;
-
     carrito[index].cantidad = nuevaCantidad;
     localStorage.setItem('carrito', JSON.stringify(carrito));
     calcularTotal();
