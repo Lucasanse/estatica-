@@ -10,7 +10,6 @@ header {
     padding: 1rem 2rem;
     display: flex;
     flex-wrap: wrap;
-    /* <- permite que los hijos salten de línea */
     justify-content: space-between;
     align-items: center;
 }
@@ -302,7 +301,7 @@ html, body {
     font-size: 16px;
     font-family: 'Montserrat', sans-serif;
     border: none;
-    border-radius: 8px;
+    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -328,6 +327,8 @@ html, body {
 
 #datos-envio{
  display: none;
+ width: 70%;
+  
 }
 
 .boton-calcular {
@@ -345,4 +346,25 @@ html, body {
 
 .boton-calcular:hover {
     background-color: #3b6d7c;
+}
+
+#resultado-envio{
+    
+    margin-top: 10px;
+}
+
+#datos-envio{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#precio-total{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.carritoh2{
+    text-align:center;
+    font-size: 40px;
+
 }

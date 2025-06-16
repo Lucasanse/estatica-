@@ -35,8 +35,8 @@
                 </a>
             </div>
         </header>
-        </header>
-        <h2 style="text-align:center">Carrito de Compras</h2>
+
+        <h2 class="carritoh2">Carrito de Compras</h2>
         <table id="carritoTable">
             <thead>
                 <tr>
@@ -44,7 +44,7 @@
                     <th>Nombre</th>
                     <th>Precio</th>
                     <th>Cantidad</th>
-                    <th>Acción</th> 
+                    <th>Acción</th> <!-- Nueva columna -->
                 </tr>
             </thead>
             <tbody>
@@ -64,16 +64,25 @@
 
             <div id="datos-envio">
                 <label for="codigo-postal">Coloque su código postal:</label>
-                <input type="text" id="codigo-postal" placeholder="Ej: 8300">
-                <button class="boton-calcular">Calcular envío</button>
+                <input type="text" id="codigo-postal" placeholder="Ej: 8328">
+                <button class="boton-calcular" onclick="calcularCostoEnvio()">Calcular envío</button>
+                <p id="resultado-envio"></p>
             </div>
 
             <label for="codigo-promocional">Código promocional:</label>
             <input type="text" id="codigo-promocional" placeholder="Ingresá tu código">
-            <button class="boton-verificar">Verificar código</button>
+            <div id="resultado-codigo"></div>
+            <button class="boton-verificar" onclick="verificarCodigoPromocional()">Verificar código</button>
 
-            <div id="totalCarrito"> </div>
-            <button class="boton-abonar">Abonar</button>
+            
+            <div id="resumen-precios">
+                <p>Subtotal productos: <span id="subtotal-productos">$0</span></p>
+                <p>Costo de envío: <span id="costo-envio">$0</span></p>
+                <p>Descuento aplicado: <span id="descuento-aplicado">$0</span></p>
+                <hr>
+                <p id="precio-total"> Total: <span id="total-final">$0</span></p>
+            </div>
+            <button class="boton-abonar" onclick="verificarAntesDeAbonar()">Abonar</button>
         </div>
 
 
