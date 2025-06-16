@@ -177,3 +177,11 @@ function mostrarCampoCodigoPostal() {
         contenedor.style.display = "none";
     }
 }
+
+/*
+
+Resolver lo del h2 del carrito de compras
+resolver lo de verificar el codigo
+resolver lo del envio
+
+*/ 
