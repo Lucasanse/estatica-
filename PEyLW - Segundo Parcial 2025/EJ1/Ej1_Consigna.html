@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Parcial JS - Consigna</title>
+    <link href="default.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div id="header">
+        <div id="logo" style="margin-left: 15px">
+            <h1><a href="#">Programación Estática y Laboratorio Web</a></h1>
+            <h2><a href="#">Parcial JS Ejercicio 1</a></h2>
+        </div>
+    </div>
+    <div id="menu">
+        <ul>
+            <li><a href="Ej1_Consigna.html">Consigna</a></li>
+            <li><a href="Ej1_Resolucion.html">HOJA Ejercicio</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <div id="main">
+            <h3>Ejercicio</h3>
+                <p>
+                    Ud. ha sido contratado nuevamente por la empresa TimbaTech para administrar el nuevo juego QuiniFAI para docentes, no docentes y alumnos 
+                    de nuestra facultad que tiene similitudes con los juegos Loto Plus y Quini6.                    
+                    Ud. debe desarrollar el sistema que informa cuantos jugadores de la FAI ganaron el loto y cuando dinero debe premiarse.      
+                    Encontrará en el html del ejercicio:         
+                </p>
+
+                <ul>                  
+                  <li>Cinco cuadros donde ingresar números</li>
+                  <li>Un botón "Encontrar Ganadores" </li>
+                  <li>Un link a un archivo con todas las jugadas en formato "Arreglo de arreglos". El arreglo se llama JUGADAS</li>
+                  <li>Un div con id="importePremiado"</li>
+                  <li>Un div con id="cantidadGanadores"</li>
+                </ul>
+
+                <p>Cuando se presione el botón de "Encontrar Ganadores" debe ocurrir lo siguiente</p>
+
+                <ul>
+                  <li>Debe validarse que todos los números sean enteros entre 0 y 30. En el caso de no serlos, mostrar en "importePremiado" la leyenda 
+                    "Sorteo Incorrecto, que intenta hacer ud señor?"
+                  </li>
+
+                  <li>En "importePremiado" debe mostrar la cantidad total de dinero premiado en US$, acorde a la siguiente fórmula:</li>
+                  <ul>
+                      <li>Cada ganador con 5 aciertos gana U$S 1.000.000</li>
+                      <li>Cada ganador con 4 aciertos gana U$S 125.000</li>
+                      <li>Cada ganador con 3 aciertos gana un sueldo de un ayudante de primera: U$S 200 &#x1F62D;</li>                
+                  </ul>
+                  <li>Ejemplo para dos ganadores con 5 aciertos, dos ganadores con 4 y tres con 3: U$S 2.250.600</li>
+
+                  <li>En "cantidadGanadores" debe mostrar la cantidad de jugadores que lograron 5, 4 y 3 aciertos. Ejemplo:
+                    <ul>
+                      <li>Con cinco aciertos: 2</li>
+                      <li>Con cuatro aciertos: 3</li>
+                      <li>Con tres aciertos: 5</li>
+                    </ul>                    
+                  </li>
+                  
+                </ul>
+
+                <p>
+                  Importante: <strong>no se evalua eficiencia de los algoritmos.</strong> No hay problemas en iterar varias veces. 
+                  Sugerimos modularizar en funciones para simplificar el problema
+                </p>
+
+                <p>
+                  Encontrará funciones preexistentes que Ud. puede usar si gusta, o no usar si esa es su preferencia. 
+                </p>
+
+                
+                <p>
+                    <strong>NO UTILICE ARCHIVOS JAVASCRIPT EXTERNOS. </strong> 
+                    <strong>NO MODIFIQUE EJ1_DBJugadas.js. </strong> 
+                </p>
+
+                <br />
+                <br />
+
+        </div>
+
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <div id="footer">
+        <p id="legal">Copyright © AtomoHost. All Rights Reserved. Designed by ned by <a
+                href="http://www.freecsstemplates.org/">Free CSS
+                Templates</a>.</p>
+        <p id="links"><a href="#">Privacy Policy</a> | <a href="#">Terms
+                of Use</a></p>
+    </div>
+</body>
+
+</html>

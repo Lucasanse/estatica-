@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Parcial JS </title>
+  <link href="default.css" rel="stylesheet" type="text/css" />
+
+  <script src="EJ1_DBJugadas.js"></script>
+
+  <script>
+    //no use esta funcion
+    function estaEnArreglo(numero, arreglo) {
+      return arreglo.includes(numero);
+    }
+
+    function encontrarGanadores() {
+      var importePremiado = document.getElementById("importePremiado");
+      var cantidadGanadores = document.getElementById("cantidadGanadores");
+      var aciertos = [];
+
+      if (!verificarNumeros()) {
+        importePremiado.innerHTML = "Sorteo Incorrecto, que intenta hacer ud señor?";
+
+      }
+      else {
+        //Si se validan los numeros, muestra los resultados por pantalla
+        aciertos = verificarJugadas();
+        var dineroTotal = (aciertos[5] * 1000000) + (aciertos[4] * 125000) + (aciertos[3] * 200);
+        importePremiado.innerHTML = "U$S " + dineroTotal.toLocaleString("es-AR", { minimumFractionDigits: 2 });
+        cantidadGanadores.innerHTML = `<ul> 
+                                          <li> Con cinco aciertos: ${aciertos[5]}</li>
+                                          <li> Con cuatro aciertos: ${aciertos[4]}</li>
+                                          <li> Con tres aciertos: ${aciertos[3]}</li>
+                                        </ul>`;
+
+
+      }
+
+    }
+
+    //funcion que verifica que todos los numeros sean enteros positivos y enten entre el 0 y 30
+    function verificarNumeros() {
+      var num1 = document.getElementById("slot1").value;
+      var num2 = document.getElementById("slot2").value;
+      var num3 = document.getElementById("slot3").value;
+      var num4 = document.getElementById("slot4").value;
+      var num5 = document.getElementById("slot5").value;
+      var numeros = [num1, num2, num3, num4, num5];
+
+      for (let i = 0; i < numeros.length; i++) {
+
+        if (!esEnteroPositivo(numeros[i])) {
+          return false;
+        }
+        if (!estaEntre0y30(parseInt(numeros[i]))) {
+          return false;
+        }
+
+      }
+      return true;
+    }
+
+    //funcion que verifica si un numero es entero positivo
+    //va iterando por todo el string para ver si cada caracter va de 0 a 9
+    //el caso verdaadero es que toda la cadena son numeros enteros, si detecta . o , da falso
+    function esEnteroPositivo(cadena) {
+      for (let i = 0; i < cadena.length; i++) {
+        if (cadena[i] < '0' || cadena[i] > '9') {
+          return false;
+        }
+      }
+      return true;
+    }
+
+    //dado un entero, retorna si esta entre el 0 y el 30
+    function estaEntre0y30(num) {
+      return (num >= 0 && num <= 30);
+    }
+
+    /*funcion que cuenta los aciertos
+      aciertos[0] son la cantidad de 0 aciertos
+      aciertos[1] son la cantidad de 1 aciertos
+      aciertos[2] son la cantidad de 2 aciertos
+      y asi..
+     */
+    function verificarJugadas() {
+      var aciertos = [0, 0, 0, 0, 0, 0];
+      var numAciertos;
+      for (let i = 0; i < JUGADAS.length; i++) {
+        numAciertos = contarAciertos(JUGADAS[i]);
+        aciertos[numAciertos]++;
+      }
+      return aciertos;
+    }
+
+    //en esta funcion se pasa un arreglo de jugada y se verifica con los numeros ganadores
+    //retorna la cantidad de aciertos de ese arreglo
+    function contarAciertos(array) {
+      var num1 = parseInt(document.getElementById("slot1").value);
+      var num2 = parseInt(document.getElementById("slot2").value);
+      var num3 = parseInt(document.getElementById("slot3").value);
+      var num4 = parseInt(document.getElementById("slot4").value);
+      var num5 = parseInt(document.getElementById("slot5").value);
+      var numeros = [num1, num2, num3, num4, num5];
+      var cantAciertos = 0;
+
+      for (let i = 0; i < array.length; i++) {
+        if (numeros[i] === array[i]) {
+          cantAciertos++;
+        }
+
+      }
+      return cantAciertos;
+    }
+
+  </script>
+
+
+</head>
+
+<body>
+  <div id="header">
+    <div id="logo" style="margin-left: 15px">
+      <h1><a href="#">Programación Estática y Laboratorio Web</a></h1>
+      <h2><a href="#">Parcial JS Ejercicio 1</a></h2>
+    </div>
+  </div>
+  <div id="menu">
+    <ul>
+      <li><a href="Ej1_Consigna.html">Consigna</a></li>
+      <li><a href="Ej1_Resolucion.html">HOJA Ejercicio</a></li>
+    </ul>
+  </div>
+  <div id="content">
+
+
+
+    <input type="text" class="square" id="slot1">
+    <input type="text" class="square" id="slot2">
+    <input type="text" class="square" id="slot3">
+    <input type="text" class="square" id="slot4">
+    <input type="text" class="square" id="slot5">
+
+    <br />
+    <button class="button" onclick="encontrarGanadores()">Encontrar Ganadores</button>
+    <br />
+    <br /><br />
+    <br /><br />
+
+
+    Importes Premiados U$S:
+    <div id="importePremiado"
+      style="font-size: 48px;background-color: lightgreen; border: 1px solid black;padding: 10px">
+      &nbsp;
+    </div>
+
+    <br>
+
+    Cantidad de Ganadores:
+    <div id="cantidadGanadores"
+      style="font-size: 24px;background-color: lightblue; border: 1px solid black;padding: 10px;">
+      &nbsp;
+    </div>
+
+
+
+    <br />
+
+
+
+
+
+  </div>
+
+
+  </table>
+
+  </div>
+  <div id="footer" style="margin-top: 240px;">
+    <p id="legal">Copyright &copy; AtomoHost. All Rights Reserved.
+      Designed by <a href="http://www.freecsstemplates.org/">Free CSS
+        Templates</a>.</p>
+    <p id="links"><a href="#">Privacy Policy</a> | <a href="#">Terms
+        of Use</a></p>
+  </div>
+  <br />
+  <br />
+</body>
+
+
+</html>
