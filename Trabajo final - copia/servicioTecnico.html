@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <script src="productos.js"></script>
+
+</head>
+
+<body onload="actualizarContadorCarrito()">
+    <div id="principal">
+        <header>
+            <div id="logo">
+                <img src="img/Logo Original.png" alt="" id="logoPrincipal">
+                <h1>Computación</h1>
+            </div>
+            <div class="nav-container">
+                <nav>
+                    <a href="index.html">Inicio</a>
+                    <a href="productos.html">Productos</a>
+                    <a href="#contacto">Contacto</a>
+                    <a href="servicioTecnico.html">Servicio Técnico</a>
+                </nav>
+                <a href="carrito.html">
+                    <div class="icono-carrito">
+                        <img src="img/carrito.png" alt="carrito">
+                        <span id="contador-carrito">0</span>
+                    </div>
+                </a>
+            </div>
+        </header>
+
+        <main id="servicio-tecnico">
+            <section class="formulario-servicio">
+                <h2>Solicitud de Servicio Técnico</h2>
+                <form id="form-servicio" onsubmit="return false">
+                    <div class="grupo">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" required>
+                              
+                        <label for="apellido">Apellido:</label>
+                        <input type="text" id="apellido" required>
+                  
+                        <label for="fecha-nac">Fecha de Nacimiento:</label>
+                        <input type="date" id="fecha-nac" required>
+
+                        <label for="mail">Correo Electrónico:</label>
+                        <input type="email" id="mail" required>
+
+                        <label for="tipo-pc">Tipo de computadora:</label>
+                        <select id="tipo-pc" required>
+                            <option value="">-- Seleccionar --</option>
+                            <option value="mantenimiento">PC</option>
+                            <option value="reparacion">Notebook</option>
+                        </select>
+
+                        <label for="tipo-servicio">Tipo de servicio:</label>
+                        <select id="tipo-servicio" onchange="mostrarOpcionesServicio()" required>
+                            <option value="">-- Seleccionar --</option>
+                            <option value="mantenimiento">Mantenimiento</option>
+                            <option value="reparacion">Reparación</option>
+                        </select>
+
+
+
+                    <!-- Opciones de MANTENIMIENTO -->
+                    <div id="opciones-mantenimiento" class="opciones-servicio">
+                        <h3>Detalles de mantenimiento</h3>
+                        <div class="grupo">
+                            <label><input type="checkbox" value="limpieza"> Limpieza física</label>
+                        
+                            <label><input type="checkbox" value="formateo"> Formateo del sistema</label>
+                        
+                            <label><input type="checkbox" value="backup"> Backup de archivos</label>
+                      
+                            <label><input type="checkbox" value="software"> Instalación de Windows</label>
+
+                            <label><input type="checkbox" value="software"> Instalación del paquete Office</label>
+
+                            <label><input type="checkbox" value="software"> Activar el paquete Office y Windows</label>
+
+                            <br>
+                        
+                            <label for="detalles-extra-mant">Comentarios adicionales:</label>
+                            <textarea id="detalles-extra-mant" rows="4"
+                                placeholder="Detalles sobre el mantenimiento..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Opciones de REPARACIÓN -->
+                    <div id="opciones-reparacion" class="opciones-servicio">
+                        <h3>Detalles de reparación</h3>
+                        <div class="grupo">
+                            <label for="problema">¿Qué problema presenta el equipo?</label>
+                            <textarea id="problema" rows="4" required></textarea>
+                        
+                            <label for="componente">Componente afectado (si se conoce):</label>
+                            <select id="componente">
+                                <option value="">-- Seleccionar --</option>
+                                <option value="pantalla">Pantalla</option>
+                                <option value="disco">Disco rígido / SSD</option>
+                                <option value="placa-video">Placa de video</option>
+                                <option value="mother">Motherboard</option>
+                                <option value="teclado">Teclado</option>
+                                <option value="bateria">Batería</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                       
+                            <label for="urgencia">¿Es urgente?</label>
+                            <select id="urgencia">
+                                <option value="">-- Seleccionar --</option>
+                                <option value="no">No</option>
+                                <option value="si">Sí</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="grupo">
+                        <button>Enviar Solicitud</button>
+                    </div>
+
+
+                </form>
+            </section>
+
+        </main>
+    </div>
+    <footer class="footer">
+        <p>2025 &copy; JS computación. Todos los derechos reservados. Allen | Rio Negro</p>
+    </footer>
+
+
+    <script src="funcionalidades.js"></script>
+</body>
+
+</html>

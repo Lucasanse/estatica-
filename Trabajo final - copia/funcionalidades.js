@@ -46,15 +46,14 @@ function mostrarProductos(productosGuardados, id) {
 
                 // Agregar evento al botón
                 const boton = tarjeta.querySelector('.boton-carrito');
-                boton.addEventListener('click', () => {
+                boton.onclick = function () {
                     agregarAlCarrito(producto);
-                });
+                };
 
+                //colocamos la tarjeta en el contenedor
                 contenedorProductos.appendChild(tarjeta);
             });
         }
-    } else {
-        console.warn('No se encontraron productos en localStorage.');
     }
 }
 
@@ -76,19 +75,18 @@ function filtrarPorCategoria(categoria) {
 }
 
 function agregarAlCarrito(producto) {
-    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-
     // Verificamos si ya está en el carrito
     const existe = carrito.find(p => p.id === producto.id);
     if (existe) {
         existe.cantidad += 1; // Aumentamos la cantidad
     } else {
-        producto.cantidad = 1; // Nueva propiedad cantidad
+        producto.cantidad = 1; // agregamos el producto al carrito con la cantidad = 1
         carrito.push(producto);
     }
 
     localStorage.setItem('carrito', JSON.stringify(carrito));
     alert(`"${producto.nombre}" se añadió al carrito.`);
+    actualizarContadorCarrito()
 }
 
 function mostrarCarrito() {
@@ -106,7 +104,7 @@ function mostrarCarrito() {
 
         // Nombre
         const celdaNombre = fila.insertCell();
-        celdaNombre.innerHTML= producto.nombre;
+        celdaNombre.innerHTML = producto.nombre;
 
         // Precio
         const celdaPrecio = fila.insertCell();
@@ -119,10 +117,12 @@ function mostrarCarrito() {
         inputCantidad.type = "number";
         inputCantidad.min = "1";
         inputCantidad.value = producto.cantidad;
-
-        inputCantidad.addEventListener("change", function () {
+        inputCantidad.onchange = function () {
             actualizarCantidad(i, parseInt(inputCantidad.value));
-        });
+        }
+        /*inputCantidad.addEventListener("change", function () {
+            actualizarCantidad(i, parseInt(inputCantidad.value));
+        }); */
 
         celdaCantidad.appendChild(inputCantidad);
 
@@ -142,8 +142,9 @@ function mostrarCarrito() {
 
 function eliminarDelCarrito(i) {
 
-    carrito.splice(i, 1); // Eliminar el producto por índice
+    carrito.splice(i, 1); // Eliminar 1 elemento desde el índice i del carrito de compras
     localStorage.setItem('carrito', JSON.stringify(carrito));
+    actualizarContadorCarrito()
     mostrarCarrito();
 }
 
@@ -153,6 +154,7 @@ function actualizarCantidad(i, nuevaCantidad) {
     carrito[i].cantidad = nuevaCantidad;
     localStorage.setItem('carrito', JSON.stringify(carrito));
     calcularTotal();
+    actualizarContadorCarrito()
 }
 
 function calcularTotal() {
@@ -168,7 +170,7 @@ function calcularTotal() {
 
     // Actualizar los elementos
     document.getElementById("subtotal-productos").innerHTML = `$${subtotal.toLocaleString("es-AR", { minimumFractionDigits: 2 })}`;
-    document.getElementById("costo-envio").innerHTML= `$${costoEnvio.toLocaleString("es-AR", { minimumFractionDigits: 2 })}`;
+    document.getElementById("costo-envio").innerHTML = `$${costoEnvio.toLocaleString("es-AR", { minimumFractionDigits: 2 })}`;
     document.getElementById("descuento-aplicado").innerHTML = `- $${montoDescuento.toLocaleString("es-AR", { minimumFractionDigits: 2 })}`;
     document.getElementById("total-final").innerHTML = `$${totalFinal.toLocaleString("es-AR", { minimumFractionDigits: 2 })}`;
 }
@@ -183,9 +185,9 @@ function mostrarCampoCodigoPostal() {
     } else {
         contenedor.style.display = "none";
     }
-    costoEnvio=0;
+    costoEnvio = 0;
     calcularTotal();
-    document.getElementById("resultado-envio").innerHTML="";
+    document.getElementById("resultado-envio").innerHTML = "";
 }
 
 function calcularCostoEnvio() {
@@ -204,12 +206,12 @@ function calcularCostoEnvio() {
 }
 
 
-function calculoDeEnvio(codigoPostal){
-    var codigos = ["1000","1704","7600","5000","4000","5500","2000","3400","3500","8300","8328"];
+function calculoDeEnvio(codigoPostal) {
+    var codigos = ["1000", "1704", "7600", "5000", "4000", "5500", "2000", "3400", "3500", "8300", "8328"];
     var montos = [1500, 2000, 2500, 3000, 3500, 4000, 5000, 3800, 1234, 6500, 0];
     var valor = -1;
     for (let i = 0; i < codigos.length; i++) {
-        if(codigoPostal === codigos[i]){
+        if (codigoPostal === codigos[i]) {
             return montos[i];
         }
     }
@@ -217,48 +219,66 @@ function calculoDeEnvio(codigoPostal){
 }
 
 function verificarCodigoPromocional() {
-    var codigos = ["desc50","desc75","desc10"];
-    var descuentos = [0.5,0.75,0.10];
+    var codigos = ["desc50", "desc75", "desc10"];
+    var descuentos = [0.5, 0.75, 0.10];
     const resultado = document.getElementById("resultado-codigo")
     const codigo = document.getElementById("codigo-promocional").value.trim().toLowerCase();
-    encontroDescuento=false;
-    
-     for (let i = 0; i < codigos.length; i++) {
-        if(codigo === codigos[i]){
+    encontroDescuento = false;
+
+    for (let i = 0; i < codigos.length; i++) {
+        if (codigo === codigos[i]) {
             descuento = descuentos[i]
-            encontroDescuento=true;
-            resultado.innerHTML= "<span style='color:green'>¡Descuento del " + (descuentos[i]*100) + "% aplicado!</span>" 
+            encontroDescuento = true;
+            resultado.innerHTML = "<span style='color:green'>¡Descuento del " + (descuentos[i] * 100) + "% aplicado!</span>"
         }
     }
 
     if (!encontroDescuento) {
         descuento = 0;
-        resultado.innerHTML= "<span style='color:red; font-weight:bold;'>¡Ingrese un código válido!</span>"; 
+        resultado.innerHTML = "<span style='color:red; font-weight:bold;'>¡Ingrese un código válido!</span>";
     }
 
     calcularTotal();
 }
 
 function verificarAntesDeAbonar() {
-    
+
     const metodo = document.getElementById("metodo-envio");
     const codigoPostal = document.getElementById("codigo-postal");
+    const totalFinal = document.getElementById("total-final"); //el texto que dice el total final
+    const costoEnvio = document.getElementById("costo-envio"); //el texto que indica el costo del envio 
+    const errorEscrito = document.getElementById("error-carrito");
+
+
     limpiar(metodo);
     limpiar(codigoPostal);
+    errorEscrito.innerHTML = "";
 
     if (metodo.value === "default") {
         error(metodo);
+        errorEscrito.innerHTML = "Coloque un método de entrega";
         return;
     }
 
     if (metodo.value === "envio" && codigoPostal.value === "") {
         error(codigoPostal)
+        errorEscrito.innerHTML = "Escriba su código postal";
+        return;
+    }
+
+    if (costoEnvio.textContent === "$0,00") {
+        errorEscrito.innerHTML = "Calcule el envio";
+        return;
+    }
+
+    if (totalFinal.textContent === "$0,00") {
+        errorEscrito.innerHTML = "Compre algo por favor";
         return;
     }
 
     // Si pasa las validaciones
     alert("¡Gracias por tu compra! Procesando pago...");
-   
+
 }
 
 function error(elem) {
@@ -271,8 +291,41 @@ function error(elem) {
 function limpiar(elem) {
     elem.style.backgroundColor = "";
     elem.style.border = "";
+
 }
 
+function actualizarContadorCarrito() {
+    var totalCantidad = 0;
+    const contador = document.getElementById("contador-carrito");
+    carrito.forEach(prod => {
+        totalCantidad += prod.cantidad;
+    });
+    contador.innerHTML = totalCantidad;
+
+}
+
+// ------------------------------- Servicio técnico --------------------------------
+
+function mostrarOpcionesServicio() {
+    const tipo = document.getElementById("tipo-servicio").value;
+    const mantenimiento = document.getElementById("opciones-mantenimiento");
+    const reparacion = document.getElementById("opciones-reparacion");
+
+    // Ocultar ambos por defecto
+    mantenimiento.style.display = "none";
+    reparacion.style.display = "none";
+
+    // Mostrar el que corresponda
+    if (tipo === "mantenimiento") {
+        mantenimiento.style.display = "block";
+    } else if (tipo === "reparacion") {
+        reparacion.style.display = "block";
+    }
+}
+
+function verificarServicioTecnico(){
+    
+}
 /*
 
 

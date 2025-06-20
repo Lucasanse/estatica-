@@ -14,7 +14,7 @@
   </style>
 </head>
 
-<body>
+<body onload="actualizarContadorCarrito()">
   <header>
     <div id="logo">
       <img src="img/Logo Original.png" alt="" id="logoPrincipal">
@@ -25,11 +25,12 @@
         <a href="index.html">Inicio</a>
         <a href="productos.html">Productos</a>
         <a href="#contacto">Contacto</a>
-        <a href="#contacto">Servicio Técnico</a>
+        <a href="servicioTecnico.html">Servicio Técnico</a>
       </nav>
       <a href="carrito.html">
         <div class="icono-carrito">
           <img src="img/carrito.png" alt="carrito">
+          <span id="contador-carrito">0</span>
         </div>
       </a>
     </div>
