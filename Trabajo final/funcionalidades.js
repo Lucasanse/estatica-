@@ -266,7 +266,7 @@ function verificarAntesDeAbonar() {
         return;
     }
 
-    if (costoEnvio.textContent === "$0,00") {
+    if (metodo.value === "envio" && costoEnvio.textContent === "$0,00") {
         errorEscrito.innerHTML = "Calcule el envio";
         return;
     }
@@ -304,7 +304,12 @@ function actualizarContadorCarrito() {
 
 }
 
-// ------------------------------- Servicio técnico --------------------------------
+/*********************************************
+ *                                           *
+ *           SERVICIO TÉCNICO                *
+ *     Formulario de solicitud de ayuda      *
+ *                                           *
+ *********************************************/
 
 function mostrarOpcionesServicio() {
     const tipo = document.getElementById("tipo-servicio").value;
@@ -323,13 +328,110 @@ function mostrarOpcionesServicio() {
     }
 }
 
-function verificarServicioTecnico(){
-    
+function verificarServicioTecnico() {
+    let valido = true;
+
+    const emailError= document.getElementById("emailValido");
+    const telefonoError=document.getElementById("telefonoValido");
+
+    const nombre = document.getElementById("nombre");
+    const apellido = document.getElementById("apellido");
+    const mail = document.getElementById("mail");
+    const telefono = document.getElementById("telefono");
+    const tipoComputadora = document.getElementById("tipo-pc");
+    const tipoServicio = document.getElementById("tipo-servicio");
+
+    // Limpiar errores previos
+
+    const campos = [nombre, apellido, mail, telefono, tipoServicio, tipoComputadora];
+    emailError.innerHTML="";
+    telefonoError.innerHTML="";
+
+    campos.forEach(limpiar);
+
+    campos.forEach(campo => {
+        if (campo.value === "") {
+            error(campo);
+            valido = false;
+        }
+    });
+
+    if (!verificarMail(mail.value)) {
+        error(mail);
+        emailError.innerHTML="Colocar un mail válido, que tenga @ y un .";
+        valido = false;
+    }
+
+    if (!esSoloNumeros(telefono.value)) {
+        error(telefono);
+         telefonoError.innerHTML="Colocar un numero de telefono valido, sin - / o alguna otra letra";
+        valido = false;
+    }
+
+
+
+    // Validaciones específicas si es mantenimiento o instalación
+    if (tipoServicio.value === "mantenimiento") {
+        let errorCheck = document.getElementById("check-obligatorio");
+        errorCheck.innerHTML = "";
+        //me da una lista de nodos con todos los inputs checkbox de la parte de mantenimiento
+        const checkboxes = document.querySelectorAll("#opciones-mantenimiento input[type='checkbox']");
+        let alMenosUnoMarcado = false;
+
+        checkboxes.forEach(c => {
+            if (c.checked) alMenosUnoMarcado = true;
+        });
+
+        if (!alMenosUnoMarcado) {
+            errorCheck.innerHTML = "Debe seleccionar al menos una opción de mantenimiento o instalación.";
+            valido = false;
+        }
+    }
+
+    //validaciones si es de tipo reparacion 
+    if (tipoServicio.value === "reparacion") {
+        const problema = document.getElementById("problema");
+        const componente = document.getElementById("componente");
+        const urgencia = document.getElementById("urgencia");
+        const camposR = [problema, componente, urgencia];
+
+        camposR.forEach(limpiar);
+
+        camposR.forEach(campo => {
+            if (campo.value === "") {
+                error(campo);
+                valido = false;
+            }
+        });
+    }
+
+    if (valido) {
+        alert("Solicitud enviada correctamente. En estos dias el comercio se comunicara con vos por mail informandote los siguientes pasos");
+    }
+
+    return valido;
 }
-/*
 
+//Verifica si el email tiene @ y luego un .
+function verificarMail(cadena) {
+    var res = true;
+    var partes = cadena.split("@");
 
-tbody?
-falta la notificacion de que hay un item en el carrito de compras
+    // partes divide un arreglo en 2, en la parte 1 tiene el nombre y en la parte 2 el dominio. Todo esto es dividido por el @
+    if (partes.length !== 2 || partes[0] === "" || partes[1].indexOf(".") < 1) {
+        res = false;
+    }
 
-*/ 
+    return res;
+}
+
+//funcion que dada la una cadena, nos devuelve true si son todos numeros
+//en caso de que sean todos numeros, quiere decir que el numero es un entero positivo.
+function esSoloNumeros(cadena) {
+    for (let i = 0; i < cadena.length; i++) {
+        if (cadena[i] < '0' || cadena[i] > '9') {
+            return false;
+        }
+    }
+    return true;
+}

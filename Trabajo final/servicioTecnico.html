@@ -35,33 +35,35 @@
         </header>
 
         <main id="servicio-tecnico">
-            <section class="formulario-servicio">
+            <div class="formulario-servicio">
                 <h2>Solicitud de Servicio Técnico</h2>
                 <form id="form-servicio" onsubmit="return false">
                     <div class="grupo">
                         <label for="nombre">Nombre:</label>
-                        <input type="text" id="nombre" required>
+                        <input type="text" id="nombre">
                               
                         <label for="apellido">Apellido:</label>
-                        <input type="text" id="apellido" required>
+                        <input type="text" id="apellido">
                   
-                        <label for="fecha-nac">Fecha de Nacimiento:</label>
-                        <input type="date" id="fecha-nac" required>
-
                         <label for="mail">Correo Electrónico:</label>
-                        <input type="email" id="mail" required>
+                        <span id="emailValido" style="color: red"></span>
+                        <input type="text" id="mail">
+
+                        <label for="telefono">Numero de telefono</label>
+                        <span id="telefonoValido" style="color: red"></span>
+                        <input type="text" id="telefono">
 
                         <label for="tipo-pc">Tipo de computadora:</label>
-                        <select id="tipo-pc" required>
+                        <select id="tipo-pc" >
                             <option value="">-- Seleccionar --</option>
-                            <option value="mantenimiento">PC</option>
-                            <option value="reparacion">Notebook</option>
+                            <option value="PC">PC</option>
+                            <option value="notebook">Notebook</option>
                         </select>
 
                         <label for="tipo-servicio">Tipo de servicio:</label>
-                        <select id="tipo-servicio" onchange="mostrarOpcionesServicio()" required>
+                        <select id="tipo-servicio" onchange="mostrarOpcionesServicio()">
                             <option value="">-- Seleccionar --</option>
-                            <option value="mantenimiento">Mantenimiento</option>
+                            <option value="mantenimiento">Mantenimiento o instalación</option>
                             <option value="reparacion">Reparación</option>
                         </select>
 
@@ -69,7 +71,7 @@
 
                     <!-- Opciones de MANTENIMIENTO -->
                     <div id="opciones-mantenimiento" class="opciones-servicio">
-                        <h3>Detalles de mantenimiento</h3>
+                        <h3>Detalles de mantenimiento o instalación</h3>
                         <div class="grupo">
                             <label><input type="checkbox" value="limpieza"> Limpieza física</label>
                         
@@ -83,7 +85,9 @@
 
                             <label><input type="checkbox" value="software"> Activar el paquete Office y Windows</label>
 
-                            <br>
+                            
+
+                            <p id="check-obligatorio" style="color: red; font-weight: bold;"></p>
                         
                             <label for="detalles-extra-mant">Comentarios adicionales:</label>
                             <textarea id="detalles-extra-mant" rows="4"
@@ -96,7 +100,7 @@
                         <h3>Detalles de reparación</h3>
                         <div class="grupo">
                             <label for="problema">¿Qué problema presenta el equipo?</label>
-                            <textarea id="problema" rows="4" required></textarea>
+                            <textarea id="problema" rows="4"></textarea>
                         
                             <label for="componente">Componente afectado (si se conoce):</label>
                             <select id="componente">
@@ -119,12 +123,12 @@
                         </div>
                     </div>
                     <div class="grupo">
-                        <button>Enviar Solicitud</button>
+                        <button onclick="verificarServicioTecnico()">Enviar Solicitud</button>
                     </div>
 
 
                 </form>
-            </section>
+            </div>
 
         </main>
     </div>

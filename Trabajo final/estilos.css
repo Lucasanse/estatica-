@@ -39,11 +39,16 @@ nav a {
     color: white;
     text-decoration: none;
     margin: 0 0.5rem;
+    padding: 10px 15px; 
+    display: inline-block; /* Permite que el padding se aplique correctamente */
+    border-radius: 6px; 
+    transition: background-color 0.2s;
 
 }
 
 nav a:hover {
     font-size: 20px;
+    background-color: rgba(255, 255, 255, 0.1); /* Opcional: destaca el hover */
 }
 
 
@@ -51,6 +56,12 @@ nav a:hover {
     font-size: 1.2rem;
     margin-left: 1rem;
     cursor: pointer;
+    position: relative;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+.icono-carrito:hover {
+    transform: scale(1.15);
 }
 
 .icono-carrito img {
