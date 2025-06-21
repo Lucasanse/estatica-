@@ -1,6 +1,6 @@
 const productos = [
   // Placas de video
-  { id: 1, nombre: "Placa de Video RTX 3060", descripcion: "NVIDIA GeForce RTX 3060 12GB GDDR6.", precio: "350000", imagen: "img/Graficas/RTX 3060.jpg", esDestacado: "si", categoria: "placa"},
+  { id: 1, nombre: "Placa de Video RTX 3060", descripcion: "NVIDIA GeForce RTX 3060 12GB GDDR6.", precio: "350000", imagen: "img/Graficas/RTX 3060.jpg", categoria: "placa", consumo: 170 },
   { id: 2, nombre: "Placa de Video RX 6600", descripcion: "ASUS Dual Radeon RX 6600 8GB GDDR6.", precio: "310000", imagen: "img/Graficas/RX 6600.jpg", esDiaDelPadre: "si", categoria: "placa" },
   { id: 3, nombre: "Placa de Video GTX 1660 Super", descripcion: "Ideal para gaming en 1080p.", precio: "270000", imagen: "img/Graficas/RTX 1660.jpg", categoria: "placa" },
 
@@ -81,7 +81,34 @@ const productos = [
   { id: 39, nombre: "Cámara IP Wi-Fi 360°", descripcion: "Vigilancia para el hogar.", precio: "32000", imagen: "img/ejemplo.jpg", categoria:"otro"  },
 
   // Estabilizador
-  { id: 40, nombre: "Estabilizador APC 1000VA", descripcion: "Protección eléctrica para PC.", precio: "48000", imagen: "img/ejemplo.jpg", categoria:"otro" }
+  { id: 40, nombre: "Estabilizador APC 1000VA", descripcion: "Protección eléctrica para PC.", precio: "48000", imagen: "img/ejemplo.jpg", categoria:"otro" },
+
+  // Nuevos productos CPU, Mother, RAM para pruebas
+{ id: 100, nombre: "AMD Ryzen 5 5600X", descripcion: "6 núcleos, 12 hilos", precio: "130000", imagen: "img/ejemplo.jpg", categoria: "cpu" },
+{ id: 101, nombre: "Intel Core i5-12400F", descripcion: "6 núcleos, 12 hilos", precio: "150000", imagen: "img/ejemplo.jpg", categoria: "cpu" },
+
+{ id: 202, nombre: "Gigabyte B460M", descripcion: "Intel LGA1200", precio: "80000", imagen: "img/ejemplo.jpg", categoria: "mother", socket: "LGA1200", ram: "DDR4", almacenamiento: ["SATA"] },
+{ id: 203, nombre: "ASRock B550", descripcion: "AMD AM4", precio: "90000", imagen: "img/ejemplo.jpg", categoria: "mother", socket: "AM4", ram: "DDR4", almacenamiento: ["SATA", "M.2"] },
+
+
+{ id: 104, nombre: "RAM 16GB DDR4 3200MHz", descripcion: "Corsair Vengeance", precio: "45000", imagen: "img/ejemplo.jpg", categoria: "ram", tipo: "DDR4" },
+{ id: 105, nombre: "RAM 32GB DDR5", descripcion: "Kingston Fury", precio: "90000", imagen: "img/ejemplo.jpg", categoria: "ram", tipo: "DDR5" },
+
+
+{ id: 200, nombre: "Intel Core i3-10100", descripcion: "Socket LGA1200", precio: "100000", imagen: "img/ejemplo.jpg", categoria: "cpu", socket: "LGA1200", consumo: 65 },
+{ id: 201, nombre: "AMD Ryzen 7 5800X", descripcion: "Socket AM4", precio: "180000", imagen: "img/ejemplo.jpg", categoria: "cpu", socket: "AM4" },
+
+
+{ id: 204, nombre: "SSD 480GB Kingston", descripcion: "SATA 2.5\"", precio: "25000", imagen: "img/ejemplo.jpg", categoria: "almacenamiento", tipo: "SATA" },
+{ id: 205, nombre: "SSD M.2 NVMe 1TB", descripcion: "Velocidad extrema", precio: "60000", imagen: "img/ejemplo.jpg", categoria: "almacenamiento", tipo: "M.2" },
+
+
+{ id: 206, nombre: "Fuente 600W Sentey", descripcion: "80 Plus White", precio: "45000", imagen: "img/ejemplo.jpg", categoria: "fuente", watts: 600 },
+{ id: 207, nombre: "Fuente 750W Corsair", descripcion: "80 Plus Bronze", precio: "75000", imagen: "img/ejemplo.jpg", categoria: "fuente", watts: 750 },
+
+{ id: 208, nombre: "Gabinete Thermaltake", descripcion: "Con RGB y vidrio templado", precio: "50000", imagen: "img/ejemplo.jpg", categoria: "gabinete" },
+{ id: 209, nombre: "Gabinete simple ATX", descripcion: "Diseño básico", precio: "30000", imagen: "img/ejemplo.jpg", categoria: "gabinete" },
+
 ];
 
 // Guardamos los productos en localStorage

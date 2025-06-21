@@ -331,8 +331,8 @@ function mostrarOpcionesServicio() {
 function verificarServicioTecnico() {
     let valido = true;
 
-    const emailError= document.getElementById("emailValido");
-    const telefonoError=document.getElementById("telefonoValido");
+    const emailError = document.getElementById("emailValido");
+    const telefonoError = document.getElementById("telefonoValido");
 
     const nombre = document.getElementById("nombre");
     const apellido = document.getElementById("apellido");
@@ -344,8 +344,8 @@ function verificarServicioTecnico() {
     // Limpiar errores previos
 
     const campos = [nombre, apellido, mail, telefono, tipoServicio, tipoComputadora];
-    emailError.innerHTML="";
-    telefonoError.innerHTML="";
+    emailError.innerHTML = "";
+    telefonoError.innerHTML = "";
 
     campos.forEach(limpiar);
 
@@ -358,13 +358,13 @@ function verificarServicioTecnico() {
 
     if (!verificarMail(mail.value)) {
         error(mail);
-        emailError.innerHTML="Colocar un mail válido, que tenga @ y un .";
+        emailError.innerHTML = "Colocar un mail válido, que tenga @ y un .";
         valido = false;
     }
 
     if (!esSoloNumeros(telefono.value)) {
         error(telefono);
-         telefonoError.innerHTML="Colocar un numero de telefono valido, sin - / o alguna otra letra";
+        telefonoError.innerHTML = "Colocar un numero de telefono valido, sin - / o alguna otra letra";
         valido = false;
     }
 
@@ -435,3 +435,119 @@ function esSoloNumeros(cadena) {
     }
     return true;
 }
+
+/*********************************************
+ *                                           *
+ *                ARMA TU PC                 *
+ *     En esta parte va todo lo relacionado  *
+ *          al armado de la pc               *
+ *                                           *
+ *********************************************/
+
+const pasosArmado = ["cpu", "mother", "ram", "almacenamiento", "placa", "fuente", "gabinete", "periferico"];
+let componentesSeleccionados = []; // se va llenando con los productos seleccionados por paso
+let totalArmado = 0;
+
+function iniciarArmado() {
+    mostrarPaso(0);
+    actualizarResumen();
+}
+
+function mostrarPaso(indice) {
+    const categoriaActual = pasosArmado[indice];
+    document.getElementById("titulo-paso").textContent = `Seleccioná tu ${categoriaActual.toUpperCase()}`;
+
+    let productosPaso = productosGuardados.filter(p => p.categoria === categoriaActual);
+
+    // Compatibilidad básica
+    if (categoriaActual === "mother" && componentesSeleccionados[0]) {
+        productosPaso = productosPaso.filter(p => p.socket === componentesSeleccionados[0].socket);
+    }
+
+    if (categoriaActual === "ram" && componentesSeleccionados[1]) {
+        productosPaso = productosPaso.filter(p => p.tipo === componentesSeleccionados[1].ram);
+    }
+
+
+    const tbody = document.getElementById("tabla-cuerpo-paso");
+    tbody.innerHTML = "";
+
+    if (productosPaso.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="5"><b>No hay productos compatibles.</b></td></tr>`;
+        return;
+    }
+
+    productosPaso.forEach(producto => {
+        const fila = document.createElement("tr");
+
+        fila.innerHTML = `
+      <td><img src="${producto.imagen}" alt="${producto.nombre}" width="80"></td>
+      <td>${producto.nombre}</td>
+      <td>${producto.descripcion}</td>
+      <td>$${parseFloat(producto.precio).toLocaleString()}</td>
+      <td><button onclick="seleccionarComponente(${indice}, ${producto.id})">Seleccionar</button></td>
+    `;
+
+        tbody.appendChild(fila);
+    });
+}
+
+function seleccionarComponente(indice, idProducto) {
+    const producto = productosGuardados.find(p => p.id === idProducto);
+    componentesSeleccionados[indice] = producto;
+    actualizarResumen();
+    if (indice + 1 < pasosArmado.length) {
+        mostrarPaso(indice + 1);
+    } else {
+
+    }
+}
+
+
+function actualizarResumen() {
+    const ul = document.getElementById("lista-componentes");
+    const total = document.getElementById("total-armado");
+
+    ul.innerHTML = "";
+    let totalArmado = 0;
+
+    for (let i = 0; i < componentesSeleccionados.length; i++) {
+        const prod = componentesSeleccionados[i];
+        if (prod) {
+            const li = document.createElement("li");
+            li.innerHTML = `<strong>${pasosArmado[i].toUpperCase()}:</strong> ${prod.nombre} - $${parseFloat(prod.precio).toLocaleString("es-AR")}`;
+            ul.appendChild(li);
+            totalArmado += parseFloat(prod.precio);
+        }
+    }
+
+    total.innerHTML = `${totalArmado.toLocaleString("es-AR", { minimumFractionDigits: 2 })}`;
+}
+
+function agregarAlCarritoArmado() {
+    for (let comp of componentesSeleccionados) {
+        agregarAlCarrito(comp);
+    }
+    alert("Componentes añadidos al carrito");
+}
+
+function volverUnPaso() {
+    //se elimina el ultimo elemento del arreglo, se actualiza el resumen y se vuelve atras un paso. 
+    if (componentesSeleccionados.length > 0) {
+        componentesSeleccionados.pop();
+        actualizarResumen();
+        mostrarPaso(componentesSeleccionados.length);
+    }
+
+}
+
+/*
+Cosas que faltan:
+-agregar mas filtros a los componentes
+-agregar mas componentes 
+-modificar la parte final: 
+    +Que se agreguen mas perisfericos y que sean opcionales
+    +mostrar que la pc ya está armada 
+-cambiar los botones esteticamente
+*/
+

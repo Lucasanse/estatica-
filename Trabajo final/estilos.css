@@ -469,3 +469,79 @@ Servicio tecnico
   border-radius: 8px;
   border: 1px solid #ccc;
 }
+
+.nav-tipo-productos {
+  background-color: #833131;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 15px 0;
+}
+
+.nav-tipo-productos a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.nav-tipo-productos a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.nav-tipo-productos a.seleccionado{
+    font-weight: bold;
+}
+
+.contenedor-principal {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+#paso-armado {
+  width: 70%;
+}
+
+.resumen-armado {
+  width: 30%;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 20px;
+}
+
+.tabla-armado {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.tabla-armado th, .tabla-armado td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+.tabla-armado img {
+  max-height: 80px;
+  object-fit: contain;
+}
+
+.tabla-armado th {
+  background-color: #f2f2f2;
+}
+
+.resumen-armado ul {
+  padding-left: 20px;
+  margin-bottom: 1rem;
+}
+
+.resumen-armado li {
+  margin-bottom: 8px;
+}

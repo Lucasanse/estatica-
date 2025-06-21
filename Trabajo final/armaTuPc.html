@@ -4,14 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Productos</title>
+  <title>Arma tu pc</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="estilos.css">
   <script src="productos.js"></script>
 
 </head>
 
-<body onload="actualizarContadorCarrito()">
+<body onload="actualizarContadorCarrito(); iniciarArmado();">
   <div id="principal">
     <header>
       <div id="logo">
@@ -35,29 +35,38 @@
     </header>
 
     <div class="nav-tipo-productos">
-      <a href="productos.html" class="seleccionado">Productos</a>
-      <a href="armaTuPc.html">Armá tu PC</a>
+      <a href="productos.html">Productos</a>
+      <a href="armaTuPc.html" class="seleccionado">Armá tu PC</a>
       <a href="queComputadora.html">¿Qué computadora quiero?</a>
     </div>
 
     <main class="contenedor-principal">
-      <aside class="filtros">
-        <h3>Filtrar por categoría</h3>
-        <ul>
-          <li><button onclick="filtrarPorCategoria('todas')">Todas</button></li>
-          <li><button onclick="filtrarPorCategoria('placa')">Placas de video</button></li>
-          <li><button onclick="filtrarPorCategoria('cpu')">Procesadores</button></li>
-          <li><button onclick="filtrarPorCategoria('mother')">Motherboards</button></li>
-          <li><button onclick="filtrarPorCategoria('ram')">Memorias RAM</button></li>
-          <li><button onclick="filtrarPorCategoria('periferico')">Periféricos</button></li>
-          <li><button onclick="filtrarPorCategoria('impresora')">Impresoras</button></li>
-          <li><button onclick="filtrarPorCategoria('toner')">Tóners / Cartuchos</button></li>
-          <li><button onclick="filtrarPorCategoria('accesorio')">Accesorios</button></li>
-          <li><button onclick="filtrarPorCategoria('otro')">Otros</button></li>
-        </ul>
-      </aside>
 
-      <div class="productos" id="filtros"></div>
+      <div id="paso-armado">
+        <h2 id="titulo-paso">Seleccioná tu componente</h2>
+        <table class="tabla-armado">
+          <thead>
+            <tr>
+              <th>Imagen</th>
+              <th>Nombre</th>
+              <th>Descripción</th>
+              <th>Precio</th>
+              <th>Seleccionar</th>
+            </tr>
+          </thead>
+          <tbody id="tabla-cuerpo-paso">
+            <!-- Filas de productos se cargarán aquí -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="resumen-armado" id="resumen-armado">
+        <h2>Tu PC Armado</h2>
+        <ul id="lista-componentes"></ul>
+        <p><strong>Total:</strong> $<span id="total-armado">0</span></p>
+        <button onclick="agregarAlCarritoArmado()">Agregar al carrito</button>
+        <button onclick="volverUnPaso()">Volver un paso para atras</button>
+      </div>
     </main>
 
   </div>
