@@ -545,3 +545,57 @@ Servicio tecnico
 .resumen-armado li {
   margin-bottom: 8px;
 }
+
+.boton-select-armarPC {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #ce7d69;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    align-self: center;
+    margin-top: auto;
+    transition: background-color 0.3s, transform 0.2s;
+
+}
+
+.botones-resumen {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.botones-resumen button {
+  font-family: 'Montserrat', sans-serif;
+  flex: 1;
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.botones-resumen button:hover {
+  background-color: #ce3f1b;
+}
+.botones-resumen button{
+    background-color: #cf5d41;
+
+}
+
+.botones-resumen button.para-atras{
+    background-color: #007bff;
+
+}
+.botones-resumen button.para-atras:hover {
+  background-color: #4297f1;
+}
+

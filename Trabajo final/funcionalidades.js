@@ -467,7 +467,13 @@ function mostrarPaso(indice) {
     if (categoriaActual === "ram" && componentesSeleccionados[1]) {
         productosPaso = productosPaso.filter(p => p.tipo === componentesSeleccionados[1].ram);
     }
+    if (categoriaActual === "placa" && componentesSeleccionados[1]) {
+        productosPaso = productosPaso.filter(p => p.gpuInterface === componentesSeleccionados[1].gpu);
+    }
 
+
+    // Ordenar por precio
+    productosPaso.sort((a, b) => parseFloat(a.precio) - parseFloat(b.precio));
 
     const tbody = document.getElementById("tabla-cuerpo-paso");
     tbody.innerHTML = "";
@@ -485,7 +491,7 @@ function mostrarPaso(indice) {
       <td>${producto.nombre}</td>
       <td>${producto.descripcion}</td>
       <td>$${parseFloat(producto.precio).toLocaleString()}</td>
-      <td><button onclick="seleccionarComponente(${indice}, ${producto.id})">Seleccionar</button></td>
+      <td><button class="boton-select-armarPC" onclick="seleccionarComponente(${indice}, ${producto.id})">Seleccionar</button></td>
     `;
 
         tbody.appendChild(fila);
@@ -543,11 +549,10 @@ function volverUnPaso() {
 
 /*
 Cosas que faltan:
--agregar mas filtros a los componentes
+-Falta filtrar por almacenamiento de la placa 
 -agregar mas componentes 
 -modificar la parte final: 
     +Que se agreguen mas perisfericos y que sean opcionales
     +mostrar que la pc ya está armada 
--cambiar los botones esteticamente
 */
 
