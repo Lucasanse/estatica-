@@ -618,7 +618,8 @@ function alternarPeriferico(idProducto) {
 
 /*
 Cosas que faltan:
--agregar mas componentes 
+-agregar mas componentes (tonners, accesorios)
 -cambiar la notificacion del carrito
+-form de que computadora quiero (agregar computadoras)
 */
 
