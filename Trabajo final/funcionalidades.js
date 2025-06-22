@@ -120,10 +120,6 @@ function mostrarCarrito() {
         inputCantidad.onchange = function () {
             actualizarCantidad(i, parseInt(inputCantidad.value));
         }
-        /*inputCantidad.addEventListener("change", function () {
-            actualizarCantidad(i, parseInt(inputCantidad.value));
-        }); */
-
         celdaCantidad.appendChild(inputCantidad);
 
         // Botón Eliminar
@@ -444,8 +440,9 @@ function esSoloNumeros(cadena) {
  *                                           *
  *********************************************/
 
-const pasosArmado = ["cpu", "mother", "ram", "almacenamiento", "placa", "fuente", "gabinete", "periferico"];
+const pasosArmado = ["cpu", "mother", "ram", "almacenamiento", "placa", "fuente", "gabinete"];
 let componentesSeleccionados = []; // se va llenando con los productos seleccionados por paso
+let perifericosSeleccionados = []; // arreglo con perisfericos opcionales
 let totalArmado = 0;
 
 function iniciarArmado() {
@@ -455,26 +452,43 @@ function iniciarArmado() {
 
 function mostrarPaso(indice) {
     const categoriaActual = pasosArmado[indice];
-    document.getElementById("titulo-paso").textContent = `Seleccioná tu ${categoriaActual.toUpperCase()}`;
+    let productosPaso;
+    let tituloPaso = document.getElementById("titulo-paso");
 
-    let productosPaso = productosGuardados.filter(p => p.categoria === categoriaActual);
+    //si ya se completaron todos los pasos de armados, se pasa a seleccionar perisfericos
+    if (indice !== pasosArmado.length) {
+        productosPaso = productosGuardados.filter(p => p.categoria === categoriaActual);
+        tituloPaso.innerHTML = `Seleccioná tu ${categoriaActual.toUpperCase()}`
+    } else {
+        productosPaso = productosGuardados.filter(p => p.categoria === "periferico");
+        tituloPaso.innerHTML = `<h2> ¡Ya tenés tu computadora lista! Agregá los perifericos que quieras</h2>
+                                <p style="color:red;"> Aclaraciones: </p>
+                                <ul>
+                                    <li style="font-size: 20px;">Si querés añadir más almacenamiento podes comprarlo desde el apartado de "Productos"</li>
+                                    <li style="font-size: 20px;">Recordá que el almacenamiento tiene que ser compatible con tu mother</li>
+                                </ul>`
+    }
 
-    // Compatibilidad básica
+
+    // compatibilidad de los productos
     if (categoriaActual === "mother" && componentesSeleccionados[0]) {
         productosPaso = productosPaso.filter(p => p.socket === componentesSeleccionados[0].socket);
     }
-
     if (categoriaActual === "ram" && componentesSeleccionados[1]) {
         productosPaso = productosPaso.filter(p => p.tipo === componentesSeleccionados[1].ram);
     }
+    //Filtra las placas solo si su versión PCIe es menor o igual a la que soporta la mother.
     if (categoriaActual === "placa" && componentesSeleccionados[1]) {
-        productosPaso = productosPaso.filter(p => p.gpuInterface === componentesSeleccionados[1].gpu);
+        const versionMother = parseFloat(componentesSeleccionados[1].PCIe);
+        productosPaso = productosPaso.filter(p => {
+            const versionPlaca = parseFloat(p.gpuInterfacePCIe);
+            return versionPlaca <= versionMother;
+        });
     }
     if (categoriaActual === "almacenamiento" && componentesSeleccionados[1]) {
         const tiposCompatibles = componentesSeleccionados[1].almacenamiento;
         productosPaso = productosPaso.filter(p => tiposCompatibles.includes(p.tipo));
     }
-
 
     // Ordenar por precio
     productosPaso.sort((a, b) => parseFloat(a.precio) - parseFloat(b.precio));
@@ -491,16 +505,30 @@ function mostrarPaso(indice) {
         const fila = document.createElement("tr");
 
         fila.innerHTML = `
-      <td><img src="${producto.imagen}" alt="${producto.nombre}" width="80"></td>
-      <td>${producto.nombre}</td>
-      <td>${producto.descripcion}</td>
-      <td>$${parseFloat(producto.precio).toLocaleString()}</td>
-      <td><button class="boton-select-armarPC" onclick="seleccionarComponente(${indice}, ${producto.id})">Seleccionar</button></td>
-    `;
+            <td><img src="${producto.imagen}" alt="${producto.nombre}" width="80"></td>
+            <td>${producto.nombre}</td>
+            <td>${producto.descripcion}</td>
+            <td>$${parseFloat(producto.precio).toLocaleString()}</td>
+              `;
+        //El boton que se añade en la tabla depende si estamos eligiendo componentes o perifericos
+        if (indice !== pasosArmado.length) {
+            fila.innerHTML += `<td><button class="boton-select-armarPC" onclick="seleccionarComponente(${indice}, ${producto.id})">Seleccionar</button></td>`
+        } else {
+            //vemos si ya esta agregado en el array de perifericosSeleccionados
+            const yaAgregado = perifericosSeleccionados.some(p => p.id === producto.id);
+            var textoBoton = "Agregar";
+            if (yaAgregado) {
+                textoBoton = "Quitar";
+            }
+            fila.innerHTML += `<td><button class="boton-select-armarPC" onclick="alternarPeriferico(${producto.id})">${textoBoton}</button></td>`
+        }
 
         tbody.appendChild(fila);
     });
+
 }
+
+//
 
 function seleccionarComponente(indice, idProducto) {
     const producto = productosGuardados.find(p => p.id === idProducto);
@@ -509,26 +537,45 @@ function seleccionarComponente(indice, idProducto) {
     if (indice + 1 < pasosArmado.length) {
         mostrarPaso(indice + 1);
     } else {
+        mostrarPaso(pasosArmado.length);
 
     }
 }
 
 
 function actualizarResumen() {
-    const ul = document.getElementById("lista-componentes");
-    const total = document.getElementById("total-armado");
+    let ul = document.getElementById("lista-componentes");
+    let total = document.getElementById("total-armado");
+    let li;
 
     ul.innerHTML = "";
     let totalArmado = 0;
 
-    for (let i = 0; i < componentesSeleccionados.length; i++) {
-        const prod = componentesSeleccionados[i];
-        if (prod) {
+    //se actualizan los componentes
+    componentesSeleccionados.forEach((prod, i) => {
+        li = document.createElement("li");
+        li.innerHTML = `<strong>${pasosArmado[i].toUpperCase()}:</strong> ${prod.nombre} - $${parseFloat(prod.precio).toLocaleString("es-AR")}`;
+        ul.appendChild(li);
+        totalArmado += parseFloat(prod.precio);
+
+    });
+
+    //actualizar la lista de perifericos en caso de que haya alguno
+    if (perifericosSeleccionados.length > 0) {
+        var liPeriferico = document.createElement("li");
+        liPeriferico.innerHTML = `<strong>Lista de PERIFÉRICOS:</strong>`;
+
+        //se crea una sublista de perifericos:
+        const ulPerifericos = document.createElement("ul");
+        perifericosSeleccionados.forEach(p => {
             const li = document.createElement("li");
-            li.innerHTML = `<strong>${pasosArmado[i].toUpperCase()}:</strong> ${prod.nombre} - $${parseFloat(prod.precio).toLocaleString("es-AR")}`;
-            ul.appendChild(li);
-            totalArmado += parseFloat(prod.precio);
-        }
+            li.textContent = `${p.nombre} - $${parseFloat(p.precio).toLocaleString("es-AR")}`;
+            ulPerifericos.appendChild(li);
+            totalArmado += parseFloat(p.precio);
+        });
+
+        liPeriferico.appendChild(ulPerifericos);
+        ul.appendChild(liPeriferico);
     }
 
     total.innerHTML = `${totalArmado.toLocaleString("es-AR", { minimumFractionDigits: 2 })}`;
@@ -538,7 +585,10 @@ function agregarAlCarritoArmado() {
     for (let comp of componentesSeleccionados) {
         agregarAlCarrito(comp);
     }
-    alert("Componentes añadidos al carrito");
+    for (let p of perifericosSeleccionados) {
+        agregarAlCarrito(p);
+    }
+    alert("Componentes y periféricos añadidos al carrito");
 }
 
 function volverUnPaso() {
@@ -551,12 +601,24 @@ function volverUnPaso() {
 
 }
 
+
+function alternarPeriferico(idProducto) {
+    const producto = productosGuardados.find(p => p.id === idProducto);
+    const index = perifericosSeleccionados.findIndex(p => p.id === idProducto);
+
+    if (index !== -1) {
+        perifericosSeleccionados.splice(index, 1);
+    } else {
+        perifericosSeleccionados.push(producto);
+    }
+
+    mostrarPaso(componentesSeleccionados.length); // volver a renderizar la tabla
+    actualizarResumen(); // actualizar listado y total
+}
+
 /*
 Cosas que faltan:
--Falta filtrar por almacenamiento de la placa 
 -agregar mas componentes 
--modificar la parte final: 
-    +Que se agreguen mas perisfericos y que sean opcionales
-    +mostrar que la pc ya está armada 
+-cambiar la notificacion del carrito
 */
 
