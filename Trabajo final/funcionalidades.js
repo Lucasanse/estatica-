@@ -470,6 +470,10 @@ function mostrarPaso(indice) {
     if (categoriaActual === "placa" && componentesSeleccionados[1]) {
         productosPaso = productosPaso.filter(p => p.gpuInterface === componentesSeleccionados[1].gpu);
     }
+    if (categoriaActual === "almacenamiento" && componentesSeleccionados[1]) {
+        const tiposCompatibles = componentesSeleccionados[1].almacenamiento;
+        productosPaso = productosPaso.filter(p => tiposCompatibles.includes(p.tipo));
+    }
 
 
     // Ordenar por precio

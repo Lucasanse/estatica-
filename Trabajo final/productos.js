@@ -1,4 +1,15 @@
 const productos = [
+
+    // CPU
+  { id: 100, nombre: "AMD Ryzen 5 5600X", descripcion: "6 núcleos, 12 hilos", precio: "130000", imagen: "img/ejemplo.jpg", categoria: "cpu", socket: "AM4" },
+  { id: 101, nombre: "Intel Core i5-12400F", descripcion: "6 núcleos, 12 hilos", precio: "150000", imagen: "img/ejemplo.jpg", categoria: "cpu", socket: "LGA1700" },
+  { id: 200, nombre: "Intel Core i3-10100", descripcion: "Socket LGA1200", precio: "100000", imagen: "img/ejemplo.jpg", categoria: "cpu", socket: "LGA1200" },
+  { id: 201, nombre: "AMD Ryzen 7 5800X", descripcion: "Socket AM4", precio: "180000", imagen: "img/ejemplo.jpg", categoria: "cpu", socket: "AM4" },
+
+  // Motherboard
+  { id: 202, nombre: "Gigabyte B460M", descripcion: "Intel LGA1200", precio: "80000", imagen: "img/ejemplo.jpg", categoria: "mother", socket: "LGA1200", ram: "DDR4", almacenamiento: ["SATA"], gpu: "PCIe 3.0" },
+  { id: 203, nombre: "ASRock B550", descripcion: "AMD AM4", precio: "90000", imagen: "img/ejemplo.jpg", categoria: "mother", socket: "AM4", ram: "DDR4", almacenamiento: ["SATA", "M.2"], gpu: "PCIe 4.0" },
+
   // Accesorios
   { id: 21, nombre: "Pad Mouse XL", descripcion: "Antideslizante, bordes cosidos.", precio: "6000", imagen: "img/ejemplo.jpg", categoria:"accesorio" },
   { id: 22, nombre: "Soporte para monitor", descripcion: "Ajustable en altura.", precio: "15000", imagen: "img/ejemplo.jpg", categoria:"accesorio" },
@@ -12,11 +23,6 @@ const productos = [
   { id: 204, nombre: "SSD 480GB Kingston", descripcion: "SATA 2.5\"", precio: "25000", imagen: "img/ejemplo.jpg", categoria: "almacenamiento", tipo: "SATA" },
   { id: 205, nombre: "SSD M.2 NVMe 1TB", descripcion: "Velocidad extrema", precio: "60000", imagen: "img/ejemplo.jpg", categoria: "almacenamiento", tipo: "M.2" },
 
-  // CPU
-  { id: 100, nombre: "AMD Ryzen 5 5600X", descripcion: "6 núcleos, 12 hilos", precio: "130000", imagen: "img/ejemplo.jpg", categoria: "cpu", socket: "AM4" },
-  { id: 101, nombre: "Intel Core i5-12400F", descripcion: "6 núcleos, 12 hilos", precio: "150000", imagen: "img/ejemplo.jpg", categoria: "cpu", socket: "LGA1700" },
-  { id: 200, nombre: "Intel Core i3-10100", descripcion: "Socket LGA1200", precio: "100000", imagen: "img/ejemplo.jpg", categoria: "cpu", socket: "LGA1200" },
-  { id: 201, nombre: "AMD Ryzen 7 5800X", descripcion: "Socket AM4", precio: "180000", imagen: "img/ejemplo.jpg", categoria: "cpu", socket: "AM4" },
 
   // Fuente
   { id: 206, nombre: "Fuente 600W Sentey", descripcion: "80 Plus White", precio: "45000", imagen: "img/ejemplo.jpg", categoria: "fuente", watts: 600 },
@@ -31,10 +37,7 @@ const productos = [
   { id: 18, nombre: "Impresora Epson EcoTank L3250", descripcion: "Multifunción inalámbrica.", precio: "150000", imagen: "img/ejemplo.jpg", esDiaDelPadre: "si", categoria: "impresora" },
   { id: 33, nombre: "Multifunción Brother DCP-T220", descripcion: "Imprime, escanea y copia.", precio: "130000", imagen: "img/ejemplo.jpg", categoria: "impresora" },
 
-  // Motherboard
-  { id: 202, nombre: "Gigabyte B460M", descripcion: "Intel LGA1200", precio: "80000", imagen: "img/ejemplo.jpg", categoria: "mother", socket: "LGA1200", ram: "DDR4", almacenamiento: ["SATA"], gpu: "PCIe 3.0" },
-  { id: 203, nombre: "ASRock B550", descripcion: "AMD AM4", precio: "90000", imagen: "img/ejemplo.jpg", categoria: "mother", socket: "AM4", ram: "DDR4", almacenamiento: ["SATA", "M.2"], gpu: "PCIe 4.0" },
-
+  
   // Periféricos
   { id: 7, nombre: "Teclado gamer retroiluminado", descripcion: "Diseño ergonómico y silencioso.", precio: "17000", imagen: "img/ejemplo.jpg", categoria: "periferico" },
   { id: 8, nombre: "Teclado mecánico Logitech", descripcion: "Switches azules, RGB.", precio: "35000", imagen: "img/ejemplo.jpg", esDiaDelPadre: "si", categoria: "periferico" },
@@ -59,10 +62,10 @@ const productos = [
   { id: 25, nombre: "Placa de Video RX 6750 XT", descripcion: "FidelityFX Super Resolution.", precio: "520000", imagen: "img/ejemplo.jpg", categoria: "placa", gpuInterface: "PCIe 4.0" },
 
   // RAM
-  { id: 4, nombre: "Memoria RAM 8GB DDR4", descripcion: "Corsair Vengeance LPX 3200MHz.", precio: "25000", imagen: "img/ejemplo.jpg", esDestacado: "si", categoria: "ram" },
-  { id: 5, nombre: "Memoria RAM 16GB DDR4", descripcion: "Kingston HyperX Fury 3200MHz.", precio: "45000", imagen: "img/ejemplo.jpg", categoria: "ram" },
-  { id: 6, nombre: "Memoria RAM 32GB DDR4", descripcion: "Corsair Dominator Platinum RGB.", precio: "95000", imagen: "img/ejemplo.jpg", categoria: "ram" },
-  { id: 27, nombre: "RAM 8GB Crucial", descripcion: "2666MHz DDR4.", precio: "22000", imagen: "img/ejemplo.jpg", categoria: "ram" },
+  { id: 4, nombre: "Memoria RAM 8GB DDR4", descripcion: "Corsair Vengeance LPX 3200MHz.", precio: "25000", imagen: "img/ejemplo.jpg", esDestacado: "si", categoria: "ram", tipo: "DDR4"  },
+  { id: 5, nombre: "Memoria RAM 16GB DDR4", descripcion: "Kingston HyperX Fury 3200MHz.", precio: "45000", imagen: "img/ejemplo.jpg", categoria: "ram", tipo: "DDR4"  },
+  { id: 6, nombre: "Memoria RAM 32GB DDR4", descripcion: "Corsair Dominator Platinum RGB.", precio: "95000", imagen: "img/ejemplo.jpg", categoria: "ram", tipo: "DDR4"  },
+  { id: 27, nombre: "RAM 8GB Crucial", descripcion: "2666MHz DDR4.", precio: "22000", imagen: "img/ejemplo.jpg", categoria: "ram", tipo: "DDR4"  },
   { id: 104, nombre: "RAM 16GB DDR4 3200MHz", descripcion: "Corsair Vengeance", precio: "45000", imagen: "img/ejemplo.jpg", categoria: "ram", tipo: "DDR4" },
   { id: 105, nombre: "RAM 32GB DDR5", descripcion: "Kingston Fury", precio: "90000", imagen: "img/ejemplo.jpg", categoria: "ram", tipo: "DDR5" }
 ];
