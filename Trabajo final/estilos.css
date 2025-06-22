@@ -16,7 +16,6 @@ header {
 
 #logo {
     flex: 1 1 250px;
-    /* <- permite que se reduzca hasta cierto punto */
     display: flex;
     align-items: center;
 }
@@ -40,7 +39,7 @@ nav a {
     text-decoration: none;
     margin: 0 0.5rem;
     padding: 10px 15px; 
-    display: inline-block; /* Permite que el padding se aplique correctamente */
+    display: inline-block; 
     border-radius: 6px; 
     transition: background-color 0.2s;
 
@@ -48,7 +47,7 @@ nav a {
 
 nav a:hover {
     font-size: 20px;
-    background-color: rgba(255, 255, 255, 0.1); /* Opcional: destaca el hover */
+    background-color: rgba(255, 255, 255, 0.1); 
 }
 
 
@@ -426,7 +425,7 @@ Servicio tecnico
 }
 
 .formulario-servicio .grupo {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
 }
@@ -599,3 +598,44 @@ Servicio tecnico
   background-color: #4297f1;
 }
 
+.contenedor-recomendacion {
+  display: flex;
+  gap: 2em;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 2em;
+  flex-wrap: nowrap; 
+}
+
+.formulario-servicio {
+  width: 100%;
+  max-width: 400px;
+  flex: 1;
+}
+
+#resultados-sugeridos {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+#contenedor-tarjetas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+#formulario-recomendacion {
+  max-width: none;
+  margin: 0;
+  width: 30%;
+  flex: 1;
+  margin-left: 100px;
+}
+
+#resultados-sugeridos h1 {
+
+  border-bottom: 3px solid #6a1b1a; 
+  padding-bottom: 10px;             
+  margin-bottom: 20px;              
+}

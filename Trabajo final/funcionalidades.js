@@ -530,12 +530,12 @@ function mostrarPaso(indice) {
 
 //
 
-function seleccionarComponente(indice, idProducto) {
+function seleccionarComponente(index, idProducto) {
     const producto = productosGuardados.find(p => p.id === idProducto);
-    componentesSeleccionados[indice] = producto;
+    componentesSeleccionados[index] = producto;
     actualizarResumen();
-    if (indice + 1 < pasosArmado.length) {
-        mostrarPaso(indice + 1);
+    if (index + 1 < pasosArmado.length) {
+        mostrarPaso(index + 1);
     } else {
         mostrarPaso(pasosArmado.length);
 
@@ -601,7 +601,6 @@ function volverUnPaso() {
 
 }
 
-
 function alternarPeriferico(idProducto) {
     const producto = productosGuardados.find(p => p.id === idProducto);
     const index = perifericosSeleccionados.findIndex(p => p.id === idProducto);
@@ -615,6 +614,110 @@ function alternarPeriferico(idProducto) {
     mostrarPaso(componentesSeleccionados.length); // volver a renderizar la tabla
     actualizarResumen(); // actualizar listado y total
 }
+
+/*********************************************
+ *                                           *
+ *         QUE COMPUTADORA QUIERO            *
+ *     En esta parte va todo lo relacionado  *
+ *      al formulario de la computadora      *
+ *                                           *
+ *********************************************/
+
+function sugerirComputadora() {
+    const tipoPC = document.getElementById("tipo-pc");
+    const almacenamiento = document.getElementById("cant-almacenamiento");
+    const checks = document.querySelectorAll('#form-servicio input[type="checkbox"]:checked');
+    const errorCheck = document.getElementById("error-check");
+    var valido = true;
+
+    //limpiar errores previos
+    limpiar(tipoPC);
+    limpiar(almacenamiento);
+    errorCheck.style.display = "none";
+
+    // Validación
+    if (tipoPC.value === "") {
+        error(tipoPC);
+        valido = false
+    }
+    if (almacenamiento.value === "") {
+        error(almacenamiento);
+        valido = false
+    }
+    if (checks.length === 0) {
+        errorCheck.style.display = "block";
+        errorCheck.innerHTML = "Elegir al menos una opción";
+        valido = false;
+    }
+
+    if (valido) {
+        // Requerimiento total
+        let requerimiento = 0;
+        checks.forEach(check => {
+            switch (check.value) {
+                case "navegar":
+                case "estudio":
+                    requerimiento += 1;
+                    break;
+                case "oficina":
+                case "programacion":
+                    requerimiento += 2;
+                    break;
+                case "diseño":
+                case "juegosPR":
+                    requerimiento += 3;
+                    break;
+                case "video":
+                case "juegosAR":
+                    requerimiento += 6;
+                    break;
+                case "profesional":
+                    requerimiento += 7;
+                    break;
+            }
+        });
+
+
+        // Filtro por tipo
+        let tipoSeleccionado = [];
+        if (tipoPC.value === "pc-armada") tipoSeleccionado = ["pc-armada"];
+        else if (tipoPC.value === "notebook") tipoSeleccionado = ["notebook"];
+        else tipoSeleccionado = ["pc-armada", "notebook"];
+
+        let prodRequeridos = productos.filter(p =>
+            //filtra los productos segun el tipo seleccionado
+            tipoSeleccionado.includes(p.categoria) &&
+            //filtra los menores al requerimiento pedido por el usuario
+            parseInt(p.requerimiento) <= requerimiento 
+        );
+
+        let prodRecomendados;
+        if(almacenamiento.value === "menos512"){
+            prodRecomendados = prodRequeridos.filter(p =>
+            parseInt(p.almacenamiento) <= 512
+        );
+        } else {
+            prodRecomendados = prodRequeridos.filter(p =>
+            parseInt(p.almacenamiento) > 512)
+        }
+
+        mostrarResultados(prodRecomendados);
+    }
+
+}
+
+function mostrarResultados(productos) {
+  let contenedorTarjetas = document.getElementById("contenedor-tarjetas");
+  contenedorTarjetas.innerHTML="";
+  if (productos.length === 0) {
+    contenedorTarjetas.innerHTML= "<p>No se encontraron computadoras que cumplan con tus criterios.</p>";
+    return;
+  }
+
+  
+  mostrarProductos(productos, "contenedor-tarjetas");
+}
+
 
 /*
 Cosas que faltan:

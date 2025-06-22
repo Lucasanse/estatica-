@@ -35,13 +35,73 @@
     </header>
 
     <div class="nav-tipo-productos">
-      <a href="productos.html" >Productos</a>
-      <a href="armaTuPc.html" >Armá tu PC</a>
+      <a href="productos.html">Productos</a>
+      <a href="armaTuPc.html">Armá tu PC</a>
       <a href="queComputadora.html" class="seleccionado">¿Qué computadora quiero?</a>
     </div>
 
-    <main class="contenedor-principal">
 
+    <main>
+      <div class="contenedor-recomendacion">
+        <div class="formulario-servicio" id="formulario-recomendacion">
+          <h2>¿Qué computadora quiero?</h2>
+          <p style="font-weight: bold;">Completá el siguiente formulario para saber cual es tu computadora ideal</p>
+          <hr>
+          <form id="form-servicio" onsubmit="return false">
+            <br>
+            <div class="grupo">
+              <label for="tipo-pc"><b>¿Qué tipo de computadora querés?</b></label>
+              <select id="tipo-pc">
+                <option value="">-- Seleccionar --</option>
+                <option value="pc-armada">Computadora de escritorio</option>
+                <option value="notebook">Notebook</option>
+                <option value="ambas">Cualquiera de las dos</option>
+              </select>
+            </div>
+
+            <div class="grupo">
+              <label for="requerimientos" class="form-pregunta"><b>¿Para qué vas a usar principalmente la computadora?
+                  (puedes elegir más de una)</b></label>
+              <p id="error-check" style="color: red; display: none;"></p>
+              <label><input type="checkbox" value="navegar"> Navegar por internet / redes sociales /
+                multimedia</label><br>
+              <label><input type="checkbox" value="oficina"> Trabajo de oficina (Word, Excel, PowerPoint)</label><br>
+              <label><input type="checkbox" value="diseño"> Diseño gráfico / edición de fotos</label><br>
+              <label><input type="checkbox" value="video"> Edición de video / animación</label><br>
+              <label><input type="checkbox" value="programacion"> Programación / desarrollo de software</label><br>
+              <label><input type="checkbox" value="juegosPR"> Jugar juegos de poco requerimientos (GTA San Andreas,
+                Stardew Valley, Terraria)</label><br>
+              <label><input type="checkbox" value="juegosAR"> Jugar juegos de alto requerimientos (GTA V, CS2, Red Dead
+                Redemption II)</label><br>
+              <label><input type="checkbox" value="profesional"> Uso profesional (ingeniería, CAD, modelado
+                3D)</label><br>
+              <label><input type="checkbox" value="estudio"> Estudio / tareas escolares</label><br>
+            </div>
+
+            <div class="grupo">
+              <label for="cant-almacenamiento"><b>¿Cuanto almacenamiento necesitas?</b></label>
+              <select id="cant-almacenamiento">
+                <option value="">-- Seleccionar --</option>
+                <option value="menos512">Entre 256 GB y 512 GB</option>
+                <option value="mas512">Más de 512GB</option>
+              </select>
+            </div>
+
+
+            <div class="grupo">
+              <button onclick="sugerirComputadora()">¿Que computadora necesito?</button>
+            </div>
+
+
+          </form>
+
+        </div>
+        <div id="resultados-sugeridos">
+          <h1>Computadoras recomendadas:</h1>
+          <hr>
+          <div id="contenedor-tarjetas"></div>
+        </div>
+      </div>
     </main>
 
   </div>
