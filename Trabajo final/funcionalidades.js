@@ -723,6 +723,7 @@ function mostrarResultados(productos) {
 Cosas que faltan:
 -agregar mas componentes (tonners, accesorios)
 -cambiar la notificacion del carrito
--form de que computadora quiero (agregar computadoras)
+-hacer que la placa de video sea opcional 
+-Agregar imagenes
 */
 
