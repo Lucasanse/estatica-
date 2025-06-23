@@ -764,6 +764,5 @@ function mostrarResultados(productos) {
 Cosas que faltan:
 -agregar conversor a dolar 
 -Agregar imagenes
--hacer lo del contacto o quienes somos
 */
 

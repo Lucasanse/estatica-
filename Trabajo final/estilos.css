@@ -495,6 +495,10 @@ Servicio tecnico
   background-color: #125ea6;
 }
 
+.formulario-servicio.tecnico {
+  max-width: 600px;
+  width: 100%;
+}
 
 
 .opciones-servicio {
@@ -531,6 +535,13 @@ Servicio tecnico
 .nav-tipo-productos a.seleccionado{
     font-weight: bold;
 }
+
+/* 
+
+Armar tu PC
+
+*/
+
 
 .contenedor-principal {
   display: flex;
@@ -602,7 +613,6 @@ Servicio tecnico
     background-color: #b46555;
     transform: scale(1.05);
 }
-
 
 
 .botones-resumen {

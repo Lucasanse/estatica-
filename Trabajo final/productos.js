@@ -1,23 +1,23 @@
 const productos = [
 
   // CPU
-  { id: 100, nombre: "AMD Ryzen 5 5600X", descripcion: "6 núcleos, 12 hilos", precio: "130000", imagen: "img/ejemplo.jpg", categoria: "cpu", socket: "AM4" },
-  { id: 101, nombre: "Intel Core i5-12400F", descripcion: "6 núcleos, 12 hilos", precio: "150000", imagen: "img/ejemplo.jpg", categoria: "cpu", socket: "LGA1700" },
-  { id: 200, nombre: "Intel Core i3-10100", descripcion: "Socket LGA1200", precio: "100000", imagen: "img/ejemplo.jpg", categoria: "cpu", socket: "LGA1200" },
-  { id: 201, nombre: "AMD Ryzen 7 5800X", descripcion: "Socket AM4", precio: "180000", imagen: "img/ejemplo.jpg", categoria: "cpu", socket: "AM4" },
-  { id: 210, nombre: "AMD Ryzen 3 4100", descripcion: "4 núcleos, 8 hilos", precio: "85000", imagen: "img/ejemplo.jpg", categoria: "cpu", socket: "AM4" },
-  { id: 211, nombre: "Intel Core i7-11700K", descripcion: "8 núcleos, 16 hilos", precio: "200000", imagen: "img/ejemplo.jpg", categoria: "cpu", socket: "LGA1200" },
-  { id: 212, nombre: "Intel Core i5-13600KF", descripcion: "14 núcleos, 20 hilos", precio: "260000", imagen: "img/ejemplo.jpg", categoria: "cpu", socket: "LGA1700" },
-  { id: 230, nombre: "Intel Core i7-14700K", descripcion: "20 núcleos (8P+12E), 28 hilos, ideal para gaming y multitarea", precio: "395000", imagen: "img/ejemplo.jpg", categoria: "cpu", socket: "LGA1700" },
+  { id: 100, nombre: "AMD Ryzen 5 5600X", descripcion: "Procesador de 6 núcleos y 12 hilos", precio: "130000", imagen: "img/CPU/AMD Ryzen 5 5600X.jpg", categoria: "cpu", socket: "AM4" },
+  { id: 101, nombre: "Intel Core i5-12400F", descripcion: "Procesador de 6 núcleos y 12 hilos", precio: "150000", imagen: "img/CPU/Intel Core i5-12400F.jpg", categoria: "cpu", socket: "LGA1700" },
+  { id: 200, nombre: "Intel Core i3-10100", descripcion: "Procesador de 4 núcleos y 8 hilos", precio: "100000", imagen: "img/CPU/Intel Core i3-10100.jfif", categoria: "cpu", socket: "LGA1200" },
+  { id: 201, nombre: "AMD Ryzen 7 5800X", descripcion: "Procesador de 8 núcleos y 16 hilos", precio: "180000", imagen: "img/CPU/AMD Ryzen 7 5800X.jfif", categoria: "cpu", socket: "AM4" },
+  { id: 210, nombre: "AMD Ryzen 3 4100", descripcion: "Procesador de 4 núcleos y 8 hilos", precio: "85000", imagen: "img/CPU/AMD Ryzen 3 4100.jpg", categoria: "cpu", socket: "AM4" },
+  { id: 211, nombre: "Intel Core i7-11700K", descripcion: "Procesador de 8 núcleos y 16 hilos", precio: "200000", imagen: "img/CPU/Intel Core i7-11700K.jfif", categoria: "cpu", socket: "LGA1200" },
+  { id: 212, nombre: "Intel Core i5-13600KF", descripcion: "Procesador de 14 núcleos y 20 hilos", precio: "260000", imagen: "img/CPU/Intel Core i5-13600KF.webp", categoria: "cpu", socket: "LGA1700" },
+  { id: 230, nombre: "Intel Core i7-14700K", descripcion: "Procesador de 20 núcleos (8P+12E) y 28 hilos", precio: "395000", imagen: "img/CPU/Intel Core i7-14700K.jpg", categoria: "cpu", socket: "LGA1700" },
 
 
   // Motherboard
-  { id: 202, nombre: "Gigabyte B460M", descripcion: "Intel LGA1200", precio: "80000", imagen: "img/ejemplo.jpg", categoria: "mother", socket: "LGA1200", ram: "DDR4", almacenamiento: ["SATA"], PCIe: "3.0" },
-  { id: 203, nombre: "ASRock B550", descripcion: "AMD AM4", precio: "90000", imagen: "img/ejemplo.jpg", categoria: "mother", socket: "AM4", ram: "DDR4", almacenamiento: ["SATA", "M.2"], PCIe: "4.0" },
-  { id: 213, nombre: "ASUS Prime B660M-A", descripcion: "Intel LGA1700, DDR4, M.2", precio: "95000", imagen: "img/ejemplo.jpg", categoria: "mother", socket: "LGA1700", ram: "DDR4", almacenamiento: ["SATA", "M.2"], PCIe: "4.0" },
-  { id: 214, nombre: "MSI MAG B550 Tomahawk", descripcion: "AM4, DDR4, PCIe 4.0", precio: "110000", imagen: "img/ejemplo.jpg", categoria: "mother", socket: "AM4", ram: "DDR4", almacenamiento: ["SATA", "M.2"], PCIe: "4.0" },
-  { id: 215, nombre: "Gigabyte H510M", descripcion: "Intel LGA1200, DDR4, M.2", precio: "70000", imagen: "img/ejemplo.jpg", categoria: "mother", socket: "LGA1200", ram: "DDR4", almacenamiento: ["SATA", "M.2"], PCIe: "3.0" },
-  { id: 231, nombre: "ASUS ROG Strix Z790-A Gaming WiFi", descripcion: "DDR5, PCIe 5.0, soporte 14ª Gen Intel, WiFi 6E", precio: "250000", imagen: "img/ejemplo.jpg", categoria: "mother", socket: "LGA1700", ram: "DDR5", almacenamiento: ["SATA", "M.2"], PCIe: "5.0" },
+  { id: 202, nombre: "Gigabyte B460M", descripcion: "Placa madre para socket LGA1200, RAM DDR4, PCIe 3.0, sin soporte para M.2, formato Micro-ATX", precio: "80000", imagen: "img/mothers/Gigabyte B460M.png", categoria: "mother", socket: "LGA1200", ram: "DDR4", almacenamiento: ["SATA"], PCIe: "3.0" },
+  { id: 203, nombre: "ASRock B550", descripcion: "Placa madre para socket AM4, RAM DDR4, PCIe 4.0, con soporte para M.2, ideal para Ryzen 3000/5000", precio: "90000", imagen: "img/mothers/ASRock B550.jpg", categoria: "mother", socket: "AM4", ram: "DDR4", almacenamiento: ["SATA", "M.2"], PCIe: "4.0" },
+  { id: 213, nombre: "ASUS Prime B660M-A", descripcion: "Placa madre para socket LGA1700, RAM DDR4, PCIe 4.0, con soporte para M.2, compatible con procesadores Intel 12ª/13ª Gen", precio: "95000", imagen: "img/mothers/ASUS Prime B660M-A.jpg", categoria: "mother", socket: "LGA1700", ram: "DDR4", almacenamiento: ["SATA", "M.2"], PCIe: "4.0" },
+  { id: 214, nombre: "MSI MAG B550 Tomahawk", descripcion: "Placa madre para socket AM4, RAM DDR4, PCIe 4.0, con soporte para M.2, robusta y preparada para gaming", precio: "110000", imagen: "img/mothers/MSI MAG B550 Tomahawk.jpg", categoria: "mother", socket: "AM4", ram: "DDR4", almacenamiento: ["SATA", "M.2"], PCIe: "4.0" },
+  { id: 215, nombre: "Gigabyte H510M", descripcion: "Placa madre para socket LGA1200, RAM DDR4, PCIe 3.0, con soporte para M.2, económica y funcional", precio: "70000", imagen: "img/mothers/Gigabyte H510M.png", categoria: "mother", socket: "LGA1200", ram: "DDR4", almacenamiento: ["SATA", "M.2"], PCIe: "3.0" },
+  { id: 231, nombre: "ASUS ROG Strix Z790-A Gaming WiFi", descripcion: "Placa madre para socket LGA1700, RAM DDR5, PCIe 5.0, soporte M.2 y WiFi 6E integrado, diseñada para alto rendimiento y gaming de última generación", precio: "250000", imagen: "img/mothers/ASUS ROG Strix Z790-A Gaming WiFi.jpg", categoria: "mother", socket: "LGA1700", ram: "DDR5", almacenamiento: ["SATA", "M.2"], PCIe: "5.0" },
 
   // RAM
   { id: 4, nombre: "Memoria RAM 8GB DDR4", descripcion: "Corsair Vengeance LPX 3200MHz.", precio: "25000", imagen: "img/ejemplo.jpg", esDestacado: "si", categoria: "ram", tipo: "DDR4" },
