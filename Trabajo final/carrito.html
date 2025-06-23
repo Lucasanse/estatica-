@@ -59,7 +59,7 @@
 
             <label for="metodo-envio">Método de entrega:</label>
             <select id="metodo-envio" onchange="mostrarCampoCodigoPostal()">
-                <option value="default"></option>
+                <option value="default">-- Seleccionar --</option>
                 <option value="sucursal">Retirar en sucursal</option>
                 <option value="envio">Envío a su ciudad</option>
             </select>
@@ -70,6 +70,13 @@
                 <button class="boton-calcular" onclick="calcularCostoEnvio()">Calcular envío</button>
                 <p id="resultado-envio"></p>
             </div>
+
+            
+            <label for="tipo-divisa">Tipo de divisa:</label>
+            <select id="tipo-divisa" onchange="calculoEnDolar()">
+                <option value="peso">Pagar en pesos</option>
+                <option value="dolar">Pagar en dolares</option>
+            </select>
 
             <label for="codigo-promocional">Código promocional:</label>
             <input type="text" id="codigo-promocional" placeholder="Ingresá tu código">
@@ -83,6 +90,7 @@
                 <p>Descuento aplicado: <span id="descuento-aplicado">$0</span></p>
                 <hr>
                 <p id="precio-total"> Total: <span id="total-final">$0</span></p>
+                <p id="precio-total-dolar"></p>
                 <p id="error-carrito"></p>
             </div>
             <button class="boton-abonar" onclick="verificarAntesDeAbonar()">Abonar</button>

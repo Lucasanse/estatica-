@@ -294,7 +294,7 @@ html, body {
 }
 
 #principal {
-    flex: 1; /* ocupa todo el espacio disponible */
+    flex: 1; 
     display: flex;
     flex-direction: column;
 }
@@ -408,6 +408,13 @@ html, body {
 #precio-total{
     font-size: 25px;
     font-weight: bold;
+}
+
+#precio-total-dolar{
+  font-size: 20px;
+  font-weight: bold;
+  color: green;
+  display: none;
 }
 
 .carritoh2{

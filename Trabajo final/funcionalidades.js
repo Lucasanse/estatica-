@@ -7,6 +7,7 @@ const carrito = JSON.parse(localStorage.getItem('carrito'));
 //variables globales para la compra:
 let costoEnvio = 0;
 let descuento = 0;
+let valorDelDolar = 1185.40;
 
 //mostrar por pantalla productos destacados
 function mostrarDestacados() {
@@ -73,6 +74,16 @@ function filtrarPorCategoria(categoria) {
 
     mostrarProductos(productosFiltrados, "filtros");
 }
+
+
+/*********************************************
+ *                                           *
+ *           CARRITO DE COMPRAS              *
+ *     todas las funciones del carrito       *
+ *                de compras                 *
+ *                                           *
+ *********************************************/
+
 
 function agregarAlCarrito(producto) {
     const existe = carrito.find(p => p.id === producto.id);
@@ -184,6 +195,7 @@ function calcularTotal() {
     document.getElementById("costo-envio").innerHTML = `$${costoEnvio.toLocaleString("es-AR", { minimumFractionDigits: 2 })}`;
     document.getElementById("descuento-aplicado").innerHTML = `- $${montoDescuento.toLocaleString("es-AR", { minimumFractionDigits: 2 })}`;
     document.getElementById("total-final").innerHTML = `$${totalFinal.toLocaleString("es-AR", { minimumFractionDigits: 2 })}`;
+    calculoEnDolar();
 }
 
 
@@ -314,6 +326,24 @@ function actualizarContadorCarrito() {
     contador.innerHTML = totalCantidad;
 
 }
+
+function calculoEnDolar() {
+    const divisa = document.getElementById("tipo-divisa").value;
+    const dolaresContenedor = document.getElementById("precio-total-dolar");
+
+    if (divisa === "dolar") {
+        const totalPesos = document.getElementById("total-final").innerText.replace("$", "").replace(/\./g, "");
+
+        const valorEnDolares = parseFloat(totalPesos) / valorDelDolar;
+
+        dolaresContenedor.innerHTML = `Total en dólares: ${valorEnDolares.toLocaleString("en-US", {style: "currency",currency: "USD",})} | cotización hoy: $${valorDelDolar}`;
+        dolaresContenedor.style.display = "block";
+    } else {
+        dolaresContenedor.style.display = "none";
+    }
+}
+
+
 
 /*********************************************
  *                                           *
@@ -587,7 +617,7 @@ function actualizarResumen() {
             totalArmado += parseFloat(prod.precio);
         } else {
             li.innerHTML = `<strong>${pasosArmado[i].toUpperCase()}:</strong> SIN SELECCIONAR`;
-            
+
         }
         ul.appendChild(li);
 
@@ -617,19 +647,19 @@ function actualizarResumen() {
 function agregarAlCarritoArmado() {
     for (let comp of componentesSeleccionados) {
         //verifica que el componente no sea 0 (el que el usuario no elije, por ejemplo la placa de video)
-        if (comp!==0){
+        if (comp !== 0) {
             agregarAlCarrito(comp);
         }
-        
+
     }
     for (let p of perifericosSeleccionados) {
         agregarAlCarrito(p);
     }
-    componentesSeleccionados=[];
-    perifericosSeleccionados=[];
+    componentesSeleccionados = [];
+    perifericosSeleccionados = [];
     iniciarArmado();
     mostrarNotificacionCarrito("Se agregaron todos los componentes al carrito");
-    
+
 
 }
 
@@ -756,7 +786,7 @@ function mostrarResultados(productos) {
         return;
     }
     mostrarProductos(productos, "contenedor-tarjetas");
-    
+
 }
 
 
