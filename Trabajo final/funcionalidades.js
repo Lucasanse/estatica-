@@ -669,10 +669,8 @@ function sugerirComputadora() {
                     break;
                 case "video":
                 case "juegosAR":
-                    requerimiento += 6;
-                    break;
                 case "profesional":
-                    requerimiento += 7;
+                    requerimiento += 10;
                     break;
             }
         });
@@ -688,9 +686,10 @@ function sugerirComputadora() {
             //filtra los productos segun el tipo seleccionado
             tipoSeleccionado.includes(p.categoria) &&
             //filtra los menores al requerimiento pedido por el usuario
-            parseInt(p.requerimiento) <= requerimiento 
+            parseInt(p.requerimiento) >= requerimiento 
         );
 
+        //filtrar segun almacenamiento
         let prodRecomendados;
         if(almacenamiento.value === "menos512"){
             prodRecomendados = prodRequeridos.filter(p =>
@@ -701,6 +700,7 @@ function sugerirComputadora() {
             parseInt(p.almacenamiento) > 512)
         }
 
+        prodRecomendados.sort((a, b) => parseFloat(a.precio) - parseFloat(b.precio));
         mostrarResultados(prodRecomendados);
     }
 

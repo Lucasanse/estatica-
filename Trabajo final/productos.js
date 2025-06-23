@@ -101,14 +101,23 @@ const productos = [
   { id: 33, nombre: "Multifunción Brother DCP-T220", descripcion: "Imprime, escanea y copia.", precio: "130000", imagen: "img/ejemplo.jpg", categoria: "impresora" },
 
   // PC armadas
-  { id: 301, nombre: "PC Armada Gamer AMD Ryzen 5", descripcion: "Ryzen 5 5600G, 16GB RAM, SSD 980GB, Radeon Vega integrada.", precio: "390000", imagen: "img/ejemplo.jpg", categoria: "pc-armada", requerimiento: 5, almacenamiento:"980"},
-  { id: 302, nombre: "PC Armada Intel i5 + GTX 1660", descripcion: "Intel i5-10400F, 16GB DDR4, SSD 480GB, GTX 1660 Super 6GB.", precio: "510000", imagen: "img/ejemplo.jpg", categoria: "pc-armada", requerimiento: 10, almacenamiento:"480"},
+  { id: 301, nombre: "PC Armada Gamer AMD Ryzen 5", descripcion: "Ryzen 5 5600G, 16GB RAM, SSD 980GB, Radeon Vega integrada.", precio: "390000", imagen: "img/ejemplo.jpg", categoria: "pc-armada", requerimiento: 10, almacenamiento:"980"},
+  { id: 302, nombre: "PC Armada Intel i5 + GTX 1660", descripcion: "Intel i5-10400F, 16GB DDR4, SSD 480GB, GTX 1660 Super 6GB.", precio: "510000", imagen: "img/ejemplo.jpg", categoria: "pc-armada", requerimiento: 100, almacenamiento:"480"},
   { id: 303, nombre: "PC Oficina Intel Core i3", descripcion: "Intel Core i3-10100, 8GB DDR4, SSD 240GB, gabinete slim.", precio: "290000", imagen: "img/ejemplo.jpg", categoria: "pc-armada", requerimiento: 0, almacenamiento:"240" },
+  { id: 304, nombre: "PC Armada Básica AMD Athlon", descripcion: "AMD Athlon 3000G, 8GB RAM, SSD 240GB, video integrado.", precio: "250000", imagen: "img/ejemplo.jpg", categoria: "pc-armada", requerimiento: 0, almacenamiento:"240" },
+  { id: 305, nombre: "PC Armada Creator Ryzen 7", descripcion: "Ryzen 7 5700G, 32GB RAM, SSD 1TB, video integrado Vega 8.", precio: "600000", imagen: "img/ejemplo.jpg", categoria: "pc-armada", requerimiento: 15, almacenamiento:"1024" },
+  { id: 306, nombre: "PC Gamer AMD Ryzen 7 + RTX 4060", descripcion: "Ryzen 7 5800X, 32GB DDR4, SSD 1TB NVMe, RTX 4060 8GB.", precio: "850000", imagen: "img/ejemplo.jpg", categoria: "pc-armada", requerimiento: 100, almacenamiento:"1024" },
+  { id: 307, nombre: "PC Trabajo Intel i7 + Quadro", descripcion: "Intel i7-10700, 32GB RAM, SSD 1TB, NVIDIA Quadro P1000.", precio: "920000", imagen: "img/ejemplo.jpg", categoria: "pc-armada", requerimiento: 100, almacenamiento:"1024" },
 
  //notebooks
  { id: 401, nombre: "Notebook Lenovo IdeaPad 3", descripcion: "Intel Core i5-1235U, 8GB RAM, SSD 512GB, pantalla 15.6\" Full HD.", precio: "490000", imagen: "img/ejemplo.jpg", categoria: "notebook", requerimiento: 0, almacenamiento:"512"},
- { id: 402, nombre: "Notebook HP 250 G9", descripcion: "Intel Core i7-1255U, 16GB DDR4, SSD 1TB, Windows 11 Pro.", precio: "650000", imagen: "img/ejemplo.jpg", categoria: "notebook", requerimiento: 10, almacenamiento:"1024" },
- { id: 403, nombre: "Notebook ASUS Vivobook 14", descripcion: "AMD Ryzen 7 5700U, 12GB RAM, SSD 512GB, ultra liviana.", precio: "610000", imagen: "img/ejemplo.jpg", categoria: "notebook", requerimiento: 5, almacenamiento:"512"},
+ { id: 402, nombre: "Notebook HP 250 G9", descripcion: "Intel Core i7-1255U, 16GB DDR4, SSD 1TB, Windows 11 Pro.", precio: "650000", imagen: "img/ejemplo.jpg", categoria: "notebook", requerimiento: 20, almacenamiento:"1024" },
+ { id: 403, nombre: "Notebook ASUS Vivobook 14", descripcion: "AMD Ryzen 7 5700U, 12GB RAM, SSD 512GB, ultra liviana.", precio: "610000", imagen: "img/ejemplo.jpg", categoria: "notebook", requerimiento: 10, almacenamiento:"512"},
+{ id: 404, nombre: "Notebook Dell Inspiron 15", descripcion: "Intel Core i3-1115G4, 8GB RAM, SSD 256GB, pantalla HD.", precio: "380000", imagen: "img/ejemplo.jpg", categoria: "notebook", requerimiento: 0, almacenamiento:"256" },
+{ id: 405, nombre: "Notebook Acer Aspire 5", descripcion: "Intel Core i5-1135G7, 16GB RAM, SSD 512GB, Intel Iris Xe.", precio: "470000", imagen: "img/ejemplo.jpg", categoria: "notebook", requerimiento: 8, almacenamiento:"512" },
+{ id: 406, nombre: "Notebook MSI Modern 14", descripcion: "Ryzen 5 7530U, 16GB RAM, SSD 1TB, Radeon integrada.", precio: "530000", imagen: "img/ejemplo.jpg", categoria: "notebook", requerimiento: 10, almacenamiento:"1024" },
+{ id: 407, nombre: "Notebook ASUS TUF Gaming F15", descripcion: "Intel i7-12700H, 16GB RAM, SSD 1TB, RTX 3050 4GB.", precio: "820000", imagen: "img/ejemplo.jpg", categoria: "notebook", requerimiento: 100, almacenamiento:"1024" },
+{ id: 408, nombre: "Notebook Gamer Lenovo Legion 5", descripcion: "Ryzen 7 6800H, 32GB RAM, SSD 1TB, RTX 4060 8GB.", precio: "1100000", imagen: "img/ejemplo.jpg", categoria: "notebook", requerimiento: 100, almacenamiento:"1024" }
 ];
 
 
