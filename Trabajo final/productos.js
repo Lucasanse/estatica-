@@ -8,7 +8,7 @@ const productos = [
   { id: 210, nombre: "AMD Ryzen 3 4100", descripcion: "4 núcleos, 8 hilos", precio: "85000", imagen: "img/ejemplo.jpg", categoria: "cpu", socket: "AM4" },
   { id: 211, nombre: "Intel Core i7-11700K", descripcion: "8 núcleos, 16 hilos", precio: "200000", imagen: "img/ejemplo.jpg", categoria: "cpu", socket: "LGA1200" },
   { id: 212, nombre: "Intel Core i5-13600KF", descripcion: "14 núcleos, 20 hilos", precio: "260000", imagen: "img/ejemplo.jpg", categoria: "cpu", socket: "LGA1700" },
-  {id: 230, nombre: "Intel Core i7-14700K", descripcion: "20 núcleos (8P+12E), 28 hilos, ideal para gaming y multitarea", precio: "395000", imagen: "img/ejemplo.jpg", categoria: "cpu", socket: "LGA1700"},
+  { id: 230, nombre: "Intel Core i7-14700K", descripcion: "20 núcleos (8P+12E), 28 hilos, ideal para gaming y multitarea", precio: "395000", imagen: "img/ejemplo.jpg", categoria: "cpu", socket: "LGA1700" },
 
 
   // Motherboard
@@ -17,9 +17,9 @@ const productos = [
   { id: 213, nombre: "ASUS Prime B660M-A", descripcion: "Intel LGA1700, DDR4, M.2", precio: "95000", imagen: "img/ejemplo.jpg", categoria: "mother", socket: "LGA1700", ram: "DDR4", almacenamiento: ["SATA", "M.2"], PCIe: "4.0" },
   { id: 214, nombre: "MSI MAG B550 Tomahawk", descripcion: "AM4, DDR4, PCIe 4.0", precio: "110000", imagen: "img/ejemplo.jpg", categoria: "mother", socket: "AM4", ram: "DDR4", almacenamiento: ["SATA", "M.2"], PCIe: "4.0" },
   { id: 215, nombre: "Gigabyte H510M", descripcion: "Intel LGA1200, DDR4, M.2", precio: "70000", imagen: "img/ejemplo.jpg", categoria: "mother", socket: "LGA1200", ram: "DDR4", almacenamiento: ["SATA", "M.2"], PCIe: "3.0" },
- { id: 231, nombre: "ASUS ROG Strix Z790-A Gaming WiFi", descripcion: "DDR5, PCIe 5.0, soporte 14ª Gen Intel, WiFi 6E", precio: "250000", imagen: "img/ejemplo.jpg", categoria: "mother", socket: "LGA1700", ram: "DDR5", almacenamiento: ["SATA", "M.2"], PCIe: "5.0" },
-  
- // RAM
+  { id: 231, nombre: "ASUS ROG Strix Z790-A Gaming WiFi", descripcion: "DDR5, PCIe 5.0, soporte 14ª Gen Intel, WiFi 6E", precio: "250000", imagen: "img/ejemplo.jpg", categoria: "mother", socket: "LGA1700", ram: "DDR5", almacenamiento: ["SATA", "M.2"], PCIe: "5.0" },
+
+  // RAM
   { id: 4, nombre: "Memoria RAM 8GB DDR4", descripcion: "Corsair Vengeance LPX 3200MHz.", precio: "25000", imagen: "img/ejemplo.jpg", esDestacado: "si", categoria: "ram", tipo: "DDR4" },
   { id: 5, nombre: "Memoria RAM 16GB DDR4", descripcion: "Kingston HyperX Fury 3200MHz.", precio: "45000", imagen: "img/ejemplo.jpg", categoria: "ram", tipo: "DDR4" },
   { id: 6, nombre: "Memoria RAM 32GB DDR4", descripcion: "Corsair Dominator Platinum RGB.", precio: "95000", imagen: "img/ejemplo.jpg", categoria: "ram", tipo: "DDR4" },
@@ -38,12 +38,13 @@ const productos = [
   { id: 221, nombre: "SSD 240GB Kingston", descripcion: "SATA 2.5\"", precio: "19000", imagen: "img/ejemplo.jpg", categoria: "almacenamiento", tipo: "SATA" },
 
   // Placas de video
-  { id: 1, nombre: "Placa de Video RTX 3060", descripcion: "NVIDIA GeForce RTX 3060 12GB GDDR6.", precio: "350000", imagen: "img/Graficas/RTX 3060.jpg", categoria: "placa", consumo: 170, gpuInterfacePCIe : "4.0" },
-  { id: 2, nombre: "Placa de Video RX 6600", descripcion: "ASUS Dual Radeon RX 6600 8GB GDDR6.", precio: "310000", imagen: "img/Graficas/RX 6600.jpg", esDiaDelPadre: "si", categoria: "placa", gpuInterfacePCIe : "4.0" },
-  { id: 3, nombre: "Placa de Video GTX 1660 Super", descripcion: "Ideal para gaming en 1080p.", precio: "270000", imagen: "img/Graficas/RTX 1660.jpg", categoria: "placa", gpuInterfacePCIe : "3.0" },
-  { id: 24, nombre: "Placa de Video RTX 4070 Ti", descripcion: "12GB GDDR6X para alto rendimiento.", precio: "850000", imagen: "img/ejemplo.jpg", categoria: "placa", gpuInterfacePCIe : "4.0" },
-  { id: 25, nombre: "Placa de Video RX 6750 XT", descripcion: "FidelityFX Super Resolution.", precio: "520000", imagen: "img/ejemplo.jpg", categoria: "placa", gpuInterfacePCIe : "4.0" },
-  { id: 232, nombre: "NVIDIA GeForce RTX 4070 Super", descripcion: "12GB GDDR6X, Ray Tracing y DLSS 3.5", precio: "890000", imagen: "img/Graficas/RTX 4070 Super.jpg", categoria: "placa", gpuInterfacePCIe : "4.0" },
+  { id: 1, nombre: "Placa de Video RTX 3060", descripcion: "NVIDIA GeForce RTX 3060 12GB GDDR6.", precio: "350000", imagen: "img/Graficas/RTX 3060.jpg", categoria: "placa", consumo: 170, gpuInterfacePCIe: "4.0" },
+  { id: 2, nombre: "Placa de Video RX 6600", descripcion: "ASUS Dual Radeon RX 6600 8GB GDDR6.", precio: "310000", imagen: "img/Graficas/RX 6600.jpg", esDiaDelPadre: "si", categoria: "placa", gpuInterfacePCIe: "4.0" },
+  { id: 3, nombre: "Placa de Video GTX 1660 Super", descripcion: "Ideal para gaming en 1080p.", precio: "270000", imagen: "img/Graficas/RTX 1660.jpg", categoria: "placa", gpuInterfacePCIe: "3.0" },
+  { id: 24, nombre: "Placa de Video RTX 4070 Ti", descripcion: "12GB GDDR6X para alto rendimiento.", precio: "850000", imagen: "img/ejemplo.jpg", categoria: "placa", gpuInterfacePCIe: "4.0" },
+  { id: 25, nombre: "Placa de Video RX 6750 XT", descripcion: "FidelityFX Super Resolution.", precio: "520000", imagen: "img/ejemplo.jpg", categoria: "placa", gpuInterfacePCIe: "4.0" },
+  { id: 232, nombre: "NVIDIA GeForce RTX 4070 Super", descripcion: "12GB GDDR6X, Ray Tracing y DLSS 3.5", precio: "890000", imagen: "img/Graficas/RTX 4070 Super.jpg", categoria: "placa", gpuInterfacePCIe: "4.0" },
+
   // Fuente
   { id: 206, nombre: "Fuente 600W Sentey", descripcion: "80 Plus White", precio: "45000", imagen: "img/ejemplo.jpg", categoria: "fuente", watts: 600 },
   { id: 207, nombre: "Fuente 750W Corsair", descripcion: "80 Plus Bronze", precio: "75000", imagen: "img/ejemplo.jpg", categoria: "fuente", watts: 750 },
@@ -68,11 +69,6 @@ const productos = [
   { id: 29, nombre: "Cable HDMI 2.0", descripcion: "1.5m de longitud, 4K UHD.", precio: "3000", imagen: "img/ejemplo.jpg", categoria: "accesorio" },
   { id: 30, nombre: "Regulador de tensión Forza", descripcion: "6 tomas, protección eléctrica.", precio: "12000", imagen: "img/ejemplo.jpg", categoria: "accesorio" },
   { id: 38, nombre: "Soporte celular para escritorio", descripcion: "Ajustable, metálico.", precio: "4000", imagen: "img/ejemplo.jpg", categoria: "accesorio" },
-
-
-  // Fuente
-  { id: 206, nombre: "Fuente 600W Sentey", descripcion: "80 Plus White", precio: "45000", imagen: "img/ejemplo.jpg", categoria: "fuente", watts: 600 },
-  { id: 207, nombre: "Fuente 750W Corsair", descripcion: "80 Plus Bronze", precio: "75000", imagen: "img/ejemplo.jpg", categoria: "fuente", watts: 750 },
 
 
   // Periféricos
@@ -100,24 +96,34 @@ const productos = [
   { id: 18, nombre: "Impresora Epson EcoTank L3250", descripcion: "Multifunción inalámbrica.", precio: "150000", imagen: "img/ejemplo.jpg", esDiaDelPadre: "si", categoria: "impresora" },
   { id: 33, nombre: "Multifunción Brother DCP-T220", descripcion: "Imprime, escanea y copia.", precio: "130000", imagen: "img/ejemplo.jpg", categoria: "impresora" },
 
-  // PC armadas
-  { id: 301, nombre: "PC Armada Gamer AMD Ryzen 5", descripcion: "Ryzen 5 5600G, 16GB RAM, SSD 980GB, Radeon Vega integrada.", precio: "390000", imagen: "img/ejemplo.jpg", categoria: "pc-armada", requerimiento: 10, almacenamiento:"980"},
-  { id: 302, nombre: "PC Armada Intel i5 + GTX 1660", descripcion: "Intel i5-10400F, 16GB DDR4, SSD 480GB, GTX 1660 Super 6GB.", precio: "510000", imagen: "img/ejemplo.jpg", categoria: "pc-armada", requerimiento: 100, almacenamiento:"480"},
-  { id: 303, nombre: "PC Oficina Intel Core i3", descripcion: "Intel Core i3-10100, 8GB DDR4, SSD 240GB, gabinete slim.", precio: "290000", imagen: "img/ejemplo.jpg", categoria: "pc-armada", requerimiento: 0, almacenamiento:"240" },
-  { id: 304, nombre: "PC Armada Básica AMD Athlon", descripcion: "AMD Athlon 3000G, 8GB RAM, SSD 240GB, video integrado.", precio: "250000", imagen: "img/ejemplo.jpg", categoria: "pc-armada", requerimiento: 0, almacenamiento:"240" },
-  { id: 305, nombre: "PC Armada Creator Ryzen 7", descripcion: "Ryzen 7 5700G, 32GB RAM, SSD 1TB, video integrado Vega 8.", precio: "600000", imagen: "img/ejemplo.jpg", categoria: "pc-armada", requerimiento: 15, almacenamiento:"1024" },
-  { id: 306, nombre: "PC Gamer AMD Ryzen 7 + RTX 4060", descripcion: "Ryzen 7 5800X, 32GB DDR4, SSD 1TB NVMe, RTX 4060 8GB.", precio: "850000", imagen: "img/ejemplo.jpg", categoria: "pc-armada", requerimiento: 100, almacenamiento:"1024" },
-  { id: 307, nombre: "PC Trabajo Intel i7 + Quadro", descripcion: "Intel i7-10700, 32GB RAM, SSD 1TB, NVIDIA Quadro P1000.", precio: "920000", imagen: "img/ejemplo.jpg", categoria: "pc-armada", requerimiento: 100, almacenamiento:"1024" },
+  //tonners y cartuchos
+  { id: 500, nombre: "Tóner Brother TN-1060", descripcion: "Rinde hasta 1.000 páginas. Compatible con modelos HL-1202, DCP-1602, MFC-1910W.", precio: "25000", imagen: "img/ejemplo.jpg", categoria: "toner" },
+  { id: 501, nombre: "Tóner HP 85A CE285A", descripcion: "Para HP LaserJet P1102, M1212nf. Rinde hasta 1.600 páginas.", precio: "27000", imagen: "img/ejemplo.jpg", categoria: "toner" },
+  { id: 502, nombre: "Cartucho Epson T544 Negro", descripcion: "Botella de tinta negra. Compatible con L1110, L3150, L5190.", precio: "9500", imagen: "img/ejemplo.jpg", categoria: "toner" },
+  { id: 503, nombre: "Cartucho HP 664 Tricolor", descripcion: "Compatible con Deskjet 1115, 2135, 3635. Rendimiento estándar.", precio: "16000", imagen: "img/ejemplo.jpg", categoria: "toner" },
+  { id: 504, nombre: "Tóner Samsung MLT-D111S", descripcion: "Rinde hasta 1.000 páginas. Compatible con M2020, M2070.", precio: "24000", imagen: "img/ejemplo.jpg", categoria: "toner" },
+  { id: 505, nombre: "Tóner Canon PG-145 Negro", descripcion: "Compatible con PIXMA MG2410, MG2510. Tinta pigmentada.", precio: "13500", imagen: "img/ejemplo.jpg", categoria: "toner" },
 
- //notebooks
- { id: 401, nombre: "Notebook Lenovo IdeaPad 3", descripcion: "Intel Core i5-1235U, 8GB RAM, SSD 512GB, pantalla 15.6\" Full HD.", precio: "490000", imagen: "img/ejemplo.jpg", categoria: "notebook", requerimiento: 0, almacenamiento:"512"},
- { id: 402, nombre: "Notebook HP 250 G9", descripcion: "Intel Core i7-1255U, 16GB DDR4, SSD 1TB, Windows 11 Pro.", precio: "650000", imagen: "img/ejemplo.jpg", categoria: "notebook", requerimiento: 20, almacenamiento:"1024" },
- { id: 403, nombre: "Notebook ASUS Vivobook 14", descripcion: "AMD Ryzen 7 5700U, 12GB RAM, SSD 512GB, ultra liviana.", precio: "610000", imagen: "img/ejemplo.jpg", categoria: "notebook", requerimiento: 10, almacenamiento:"512"},
-{ id: 404, nombre: "Notebook Dell Inspiron 15", descripcion: "Intel Core i3-1115G4, 8GB RAM, SSD 256GB, pantalla HD.", precio: "380000", imagen: "img/ejemplo.jpg", categoria: "notebook", requerimiento: 0, almacenamiento:"256" },
-{ id: 405, nombre: "Notebook Acer Aspire 5", descripcion: "Intel Core i5-1135G7, 16GB RAM, SSD 512GB, Intel Iris Xe.", precio: "470000", imagen: "img/ejemplo.jpg", categoria: "notebook", requerimiento: 8, almacenamiento:"512" },
-{ id: 406, nombre: "Notebook MSI Modern 14", descripcion: "Ryzen 5 7530U, 16GB RAM, SSD 1TB, Radeon integrada.", precio: "530000", imagen: "img/ejemplo.jpg", categoria: "notebook", requerimiento: 10, almacenamiento:"1024" },
-{ id: 407, nombre: "Notebook ASUS TUF Gaming F15", descripcion: "Intel i7-12700H, 16GB RAM, SSD 1TB, RTX 3050 4GB.", precio: "820000", imagen: "img/ejemplo.jpg", categoria: "notebook", requerimiento: 100, almacenamiento:"1024" },
-{ id: 408, nombre: "Notebook Gamer Lenovo Legion 5", descripcion: "Ryzen 7 6800H, 32GB RAM, SSD 1TB, RTX 4060 8GB.", precio: "1100000", imagen: "img/ejemplo.jpg", categoria: "notebook", requerimiento: 100, almacenamiento:"1024" }
+
+
+  // PC armadas
+  { id: 301, nombre: "PC Armada Gamer AMD Ryzen 5", descripcion: "Ryzen 5 5600G, 16GB RAM, SSD 980GB, Radeon Vega integrada.", precio: "390000", imagen: "img/ejemplo.jpg", categoria: "pc-armada", requerimiento: 10, almacenamiento: "980" },
+  { id: 302, nombre: "PC Armada Intel i5 + GTX 1660", descripcion: "Intel i5-10400F, 16GB DDR4, SSD 480GB, GTX 1660 Super 6GB.", precio: "510000", imagen: "img/ejemplo.jpg", categoria: "pc-armada", requerimiento: 100, almacenamiento: "480" },
+  { id: 303, nombre: "PC Oficina Intel Core i3", descripcion: "Intel Core i3-10100, 8GB DDR4, SSD 240GB, gabinete slim.", precio: "290000", imagen: "img/ejemplo.jpg", categoria: "pc-armada", requerimiento: 0, almacenamiento: "240" },
+  { id: 304, nombre: "PC Armada Básica AMD Athlon", descripcion: "AMD Athlon 3000G, 8GB RAM, SSD 240GB, video integrado.", precio: "250000", imagen: "img/ejemplo.jpg", categoria: "pc-armada", requerimiento: 0, almacenamiento: "240" },
+  { id: 305, nombre: "PC Armada Creator Ryzen 7", descripcion: "Ryzen 7 5700G, 32GB RAM, SSD 1TB, video integrado Vega 8.", precio: "600000", imagen: "img/ejemplo.jpg", categoria: "pc-armada", requerimiento: 15, almacenamiento: "1024" },
+  { id: 306, nombre: "PC Gamer AMD Ryzen 7 + RTX 4060", descripcion: "Ryzen 7 5800X, 32GB DDR4, SSD 1TB NVMe, RTX 4060 8GB.", precio: "850000", imagen: "img/ejemplo.jpg", categoria: "pc-armada", requerimiento: 100, almacenamiento: "1024" },
+  { id: 307, nombre: "PC Trabajo Intel i7 + Quadro", descripcion: "Intel i7-10700, 32GB RAM, SSD 1TB, NVIDIA Quadro P1000.", precio: "920000", imagen: "img/ejemplo.jpg", categoria: "pc-armada", requerimiento: 100, almacenamiento: "1024" },
+
+  //notebooks
+  { id: 401, nombre: "Notebook Lenovo IdeaPad 3", descripcion: "Intel Core i5-1235U, 8GB RAM, SSD 512GB, pantalla 15.6\" Full HD.", precio: "490000", imagen: "img/ejemplo.jpg", categoria: "notebook", requerimiento: 0, almacenamiento: "512" },
+  { id: 402, nombre: "Notebook HP 250 G9", descripcion: "Intel Core i7-1255U, 16GB DDR4, SSD 1TB, Windows 11 Pro.", precio: "650000", imagen: "img/ejemplo.jpg", categoria: "notebook", requerimiento: 20, almacenamiento: "1024" },
+  { id: 403, nombre: "Notebook ASUS Vivobook 14", descripcion: "AMD Ryzen 7 5700U, 12GB RAM, SSD 512GB, ultra liviana.", precio: "610000", imagen: "img/ejemplo.jpg", categoria: "notebook", requerimiento: 10, almacenamiento: "512" },
+  { id: 404, nombre: "Notebook Dell Inspiron 15", descripcion: "Intel Core i3-1115G4, 8GB RAM, SSD 256GB, pantalla HD.", precio: "380000", imagen: "img/ejemplo.jpg", categoria: "notebook", requerimiento: 0, almacenamiento: "256" },
+  { id: 405, nombre: "Notebook Acer Aspire 5", descripcion: "Intel Core i5-1135G7, 16GB RAM, SSD 512GB, Intel Iris Xe.", precio: "470000", imagen: "img/ejemplo.jpg", categoria: "notebook", requerimiento: 8, almacenamiento: "512" },
+  { id: 406, nombre: "Notebook MSI Modern 14", descripcion: "Ryzen 5 7530U, 16GB RAM, SSD 1TB, Radeon integrada.", precio: "530000", imagen: "img/ejemplo.jpg", categoria: "notebook", requerimiento: 10, almacenamiento: "1024" },
+  { id: 407, nombre: "Notebook ASUS TUF Gaming F15", descripcion: "Intel i7-12700H, 16GB RAM, SSD 1TB, RTX 3050 4GB.", precio: "820000", imagen: "img/ejemplo.jpg", categoria: "notebook", requerimiento: 100, almacenamiento: "1024" },
+  { id: 408, nombre: "Notebook Gamer Lenovo Legion 5", descripcion: "Ryzen 7 6800H, 32GB RAM, SSD 1TB, RTX 4060 8GB.", precio: "1100000", imagen: "img/ejemplo.jpg", categoria: "notebook", requerimiento: 100, almacenamiento: "1024" }
 ];
 
 

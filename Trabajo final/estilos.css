@@ -146,6 +146,22 @@ nav a:hover {
     padding: 1rem;
 }
 
+.footer .redes {
+    margin-top: 0.5rem;
+}
+
+.footer .icono-red {
+    width: 32px;
+    height: 32px;
+    margin: 0 10px;
+    vertical-align: middle;
+    transition: transform 0.2s;
+}
+
+.footer .icono-red:hover {
+    transform: scale(1.1);
+}
+
 .boton-carrito {
     font-family: 'Montserrat', sans-serif;
     background-color: #ce7d69;
@@ -157,11 +173,32 @@ nav a:hover {
     font-weight: 600;
     cursor: pointer;
     align-self: center;
-    /* <-- centra horizontalmente dentro del contenedor flex */
     margin-top: auto;
-    /* <-- empuja el botón hacia abajo */
     transition: background-color 0.3s, transform 0.2s;
 
+}
+
+.notificacion-carrito {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #270505;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  transition: opacity 0.4s, transform 0.4s;
+  z-index: 9999;
+}
+
+.notificacion-carrito.mostrar {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.notificacion-carrito.oculto {
+  transform: translateY(20px);
+   opacity: 0;
 }
 
 p.precio {
@@ -561,6 +598,13 @@ Servicio tecnico
 
 }
 
+.boton-select-armarPC:hover {
+    background-color: #b46555;
+    transform: scale(1.05);
+}
+
+
+
 .botones-resumen {
   display: flex;
   justify-content: space-between;
@@ -598,6 +642,7 @@ Servicio tecnico
   background-color: #4297f1;
 }
 
+/* ¿QUE COMPUTADORA QUIERO */
 .contenedor-recomendacion {
   display: flex;
   gap: 2em;
@@ -638,4 +683,77 @@ Servicio tecnico
   border-bottom: 3px solid #6a1b1a; 
   padding-bottom: 10px;             
   margin-bottom: 20px;              
+}
+
+/* CONTACTO */
+
+.contenedor-contacto {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  gap: 30px;
+  text-align: center;
+}
+
+.contenedor-contacto h2 {
+  font-size: 36px;
+  color: #6a1b1a;
+  margin-bottom: 10px;
+}
+
+.contenedor-contacto p {
+  max-width: 800px;
+  font-size: 18px;
+  margin: 0 auto;
+}
+
+.mapa-contacto {
+  width: 100%;
+  max-width: 800px;
+}
+
+.info-contacto {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.info-contacto h2 {
+  font-size: 32px;
+  color: #6a1b1a;
+  margin-bottom: 20px;
+}
+
+.lista-contacto {
+  list-style: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.lista-contacto li {
+  font-size: 18px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: left;
+}
+
+.lista-contacto img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) saturate(100%);
+}
+
+.lista-contacto a {
+  color: #6a1b1a;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.lista-contacto a:hover {
+  text-decoration: underline;
 }

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="estilos.css" />
+  <script src="productos.js"></script>
+  <script src="funcionalidades.js"></script>
+</head>
+
+<body onload="actualizarContadorCarrito()">
+  <div id="principal">
+    <header>
+      <div id="logo">
+        <img src="img/Logo Original.png" alt="" id="logoPrincipal" />
+        <h1>Computación</h1>
+      </div>
+      <div class="nav-container">
+        <nav>
+          <a href="index.html">Inicio</a>
+          <a href="productos.html">Productos</a>
+          <a href="contacto.html" class="seleccionado">Contacto</a>
+          <a href="servicioTecnico.html">Servicio Técnico</a>
+        </nav>
+        <a href="carrito.html">
+          <div class="icono-carrito">
+            <img src="img/carrito.png" alt="carrito" />
+            <span id="contador-carrito">0</span>
+          </div>
+        </a>
+      </div>
+    </header>
+
+<main class="contenedor-contacto">
+  <div class="info-contacto">
+    <h2>¿Dónde estamos?</h2>
+    <p>
+      Somos <strong>JS Computación</strong>, tu comercio de confianza en Allen, Río Negro. Brindamos soluciones en informática,
+      ventas de productos tecnológicos y servicio técnico. ¡Te esperamos con atención personalizada y asesoramiento! 
+    </p>
+    <br>
+    <p>Encontranos en Saenz Peña 97 esq. Mariani</p>
+  </div>
+
+  <div class="mapa-contacto">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3101.68163804265!2d-67.832971!3d-38.9769369!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x960a2314cc623ff1%3A0x60ecd58069e93d40!2sJS%20Computaci%C3%B3n!5e0!3m2!1ses!2sar!4v1750684806731!5m2!1ses!2sar"
+      width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+
+  
+<div class="info-contacto">
+  <h2>Canales de comunicación</h2>
+  <ul class="lista-contacto">
+    <li><img src="img/footer/instagram.png" alt="Instagram"> <a href="https://www.instagram.com/jscomputacionallen" target="_blank" rel="noopener">Nuestro Instagram</a></li>
+    <li><img src="img/footer/wap.png" alt="WhatsApp"> <a href="https://wa.link/bz7qs1" target="_blank" rel="noopener">Escribinos al WhatsApp</a></li>
+    <li><img src="img/footer/mail.png" alt="Correo"> <a href="mailto:ventas@jscomputacion.com.ar">ventas@jscomputacion.com.ar</a></li>
+  </ul>
+</div>
+
+  </main>
+
+
+<footer class="footer">
+  <p>2025 &copy; JS computación. Todos los derechos reservados. Allen | Rio Negro</p>
+  <div class="redes">
+    <a href="https://www.instagram.com/jscomputacionallen" target="_blank" rel="noopener">
+      <img src="img/footer/instagram.png" alt="Instagram" class="icono-red">
+    </a>
+    <a href="https://wa.link/bz7qs1" target="_blank" rel="noopener">
+      <img src="img/footer/wap.png" alt="WhatsApp" class="icono-red">
+    </a>
+  </div>
+</footer>
+
+    <div id="notificacion-carrito" class="notificacion-carrito oculto"></div>
+  </div>
+</body>
+
+</html>

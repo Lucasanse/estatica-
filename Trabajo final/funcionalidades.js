@@ -9,23 +9,23 @@ let costoEnvio = 0;
 let descuento = 0;
 
 //mostrar por pantalla productos destacados
-mostrarProductos(obtenerDestacados(productosGuardados), "destacados");
-mostrarProductos(obtenerDiaDelPadre(productosGuardados), "diaPadre");
-mostrarProductos(productosGuardados, "filtros");
+function mostrarDestacados() {
+    let destacados = productos.filter(p => p.esDestacado === "si");
+    mostrarProductos(destacados, "destacados");
+}
 
 //mostrar por pantalla productos del dia del padre
-
-
-//crea productos destacados 
-function obtenerDestacados(productos) {
-    return productos.filter(p => p.esDestacado === "si");
+function mostrarDiaDelPadre() {
+    let pdp = productos.filter(p => p.esDiaDelPadre === "si");
+    mostrarProductos(pdp, "diaPadre");
 }
 
-//crea productos del dia del padre 
-function obtenerDiaDelPadre(productos) {
-    return productos.filter(p => p.esDiaDelPadre === "si");
+//mostrar por pantalla productos del dia del padre
+function mostrarConFiltros() {
+    mostrarProductos(productosGuardados, "filtros");
 }
 
+//muestra los productos en forma de tarjetas en el id donde querramos 
 function mostrarProductos(productosGuardados, id) {
     if (productosGuardados && productosGuardados.length > 0) {
         var contenedorProductos = document.getElementById(id);
@@ -75,18 +75,33 @@ function filtrarPorCategoria(categoria) {
 }
 
 function agregarAlCarrito(producto) {
-    // Verificamos si ya está en el carrito
     const existe = carrito.find(p => p.id === producto.id);
     if (existe) {
-        existe.cantidad += 1; // Aumentamos la cantidad
+        existe.cantidad += 1;
     } else {
-        producto.cantidad = 1; // agregamos el producto al carrito con la cantidad = 1
+        producto.cantidad = 1;
         carrito.push(producto);
     }
 
     localStorage.setItem('carrito', JSON.stringify(carrito));
-    alert(`"${producto.nombre}" se añadió al carrito.`);
-    actualizarContadorCarrito()
+    mostrarNotificacionCarrito(`${producto.nombre} se añadió al carrito.`);
+    actualizarContadorCarrito();
+}
+
+function mostrarNotificacionCarrito(mensaje) {
+    const noti = document.getElementById("notificacion-carrito");
+    noti.innerHTML = mensaje;
+
+    //la notificacion se hace visible, se le agrega a la clase de notificacion-carrito el mostrar. 
+    //mostrar lo hace visible y lo mueve un poco para arriba
+    noti.classList.add("mostrar");
+    noti.classList.remove("oculto");
+
+    // Despues de 3 segundos se vuelve a ocultar 
+    setTimeout(() => {
+        noti.classList.remove("mostrar");
+        noti.classList.add("oculto");
+    }, 3000);
 }
 
 function mostrarCarrito() {
@@ -523,15 +538,28 @@ function mostrarPaso(indice) {
             fila.innerHTML += `<td><button class="boton-select-armarPC" onclick="alternarPeriferico(${producto.id})">${textoBoton}</button></td>`
         }
 
+
+
         tbody.appendChild(fila);
     });
+
+    if (categoriaActual === "placa") {
+        const fila = document.createElement("tr");
+        fila.innerHTML = `
+            <td colspan="4"><b>Prefiero no agregar una placa de video</b></td>
+            <td><button class="boton-select-armarPC" onclick="seleccionarComponente(${indice}, ${0})">Seleccionar</button></td> `;
+        tbody.appendChild(fila);
+    }
 
 }
 
 //
 
 function seleccionarComponente(index, idProducto) {
-    const producto = productosGuardados.find(p => p.id === idProducto);
+    var producto;
+    //si el producto es de ID 0, no existe (ejemplo de la placa de video que es opcional)
+    if (idProducto !== 0) producto = productosGuardados.find(p => p.id === idProducto);
+    else producto = 0;
     componentesSeleccionados[index] = producto;
     actualizarResumen();
     if (index + 1 < pasosArmado.length) {
@@ -551,12 +579,17 @@ function actualizarResumen() {
     ul.innerHTML = "";
     let totalArmado = 0;
 
-    //se actualizan los componentes
+    //se actualizan los componentes. Si el prod = 0, quiere decir que el usuario no selecciono nada 
     componentesSeleccionados.forEach((prod, i) => {
         li = document.createElement("li");
-        li.innerHTML = `<strong>${pasosArmado[i].toUpperCase()}:</strong> ${prod.nombre} - $${parseFloat(prod.precio).toLocaleString("es-AR")}`;
+        if (prod !== 0) {
+            li.innerHTML = `<strong>${pasosArmado[i].toUpperCase()}:</strong> ${prod.nombre} - $${parseFloat(prod.precio).toLocaleString("es-AR")}`;
+            totalArmado += parseFloat(prod.precio);
+        } else {
+            li.innerHTML = `<strong>${pasosArmado[i].toUpperCase()}:</strong> SIN SELECCIONAR`;
+            
+        }
         ul.appendChild(li);
-        totalArmado += parseFloat(prod.precio);
 
     });
 
@@ -583,12 +616,21 @@ function actualizarResumen() {
 
 function agregarAlCarritoArmado() {
     for (let comp of componentesSeleccionados) {
-        agregarAlCarrito(comp);
+        //verifica que el componente no sea 0 (el que el usuario no elije, por ejemplo la placa de video)
+        if (comp!==0){
+            agregarAlCarrito(comp);
+        }
+        
     }
     for (let p of perifericosSeleccionados) {
         agregarAlCarrito(p);
     }
-    alert("Componentes y periféricos añadidos al carrito");
+    componentesSeleccionados=[];
+    perifericosSeleccionados=[];
+    iniciarArmado();
+    mostrarNotificacionCarrito("Se agregaron todos los componentes al carrito");
+    
+
 }
 
 function volverUnPaso() {
@@ -686,18 +728,18 @@ function sugerirComputadora() {
             //filtra los productos segun el tipo seleccionado
             tipoSeleccionado.includes(p.categoria) &&
             //filtra los menores al requerimiento pedido por el usuario
-            parseInt(p.requerimiento) >= requerimiento 
+            parseInt(p.requerimiento) >= requerimiento
         );
 
         //filtrar segun almacenamiento
         let prodRecomendados;
-        if(almacenamiento.value === "menos512"){
+        if (almacenamiento.value === "menos512") {
             prodRecomendados = prodRequeridos.filter(p =>
-            parseInt(p.almacenamiento) <= 512
-        );
+                parseInt(p.almacenamiento) <= 512
+            );
         } else {
             prodRecomendados = prodRequeridos.filter(p =>
-            parseInt(p.almacenamiento) > 512)
+                parseInt(p.almacenamiento) > 512)
         }
 
         prodRecomendados.sort((a, b) => parseFloat(a.precio) - parseFloat(b.precio));
@@ -707,23 +749,21 @@ function sugerirComputadora() {
 }
 
 function mostrarResultados(productos) {
-  let contenedorTarjetas = document.getElementById("contenedor-tarjetas");
-  contenedorTarjetas.innerHTML="";
-  if (productos.length === 0) {
-    contenedorTarjetas.innerHTML= "<p>No se encontraron computadoras que cumplan con tus criterios.</p>";
-    return;
-  }
-
-  
-  mostrarProductos(productos, "contenedor-tarjetas");
+    let contenedorTarjetas = document.getElementById("contenedor-tarjetas");
+    contenedorTarjetas.innerHTML = "";
+    if (productos.length === 0) {
+        contenedorTarjetas.innerHTML = "<p>No se encontraron computadoras que cumplan con tus criterios.</p>";
+        return;
+    }
+    mostrarProductos(productos, "contenedor-tarjetas");
+    
 }
 
 
 /*
 Cosas que faltan:
--agregar mas componentes (tonners, accesorios)
--cambiar la notificacion del carrito
--hacer que la placa de video sea opcional 
+-agregar conversor a dolar 
 -Agregar imagenes
+-hacer lo del contacto o quienes somos
 */
 
