@@ -219,7 +219,7 @@ function calcularCostoEnvio() {
 
 function calculoDeEnvio(codigoPostal) {
     var codigos = ["1000", "1704", "7600", "5000", "4000", "5500", "2000", "3400", "3500", "8300", "8328"];
-    var montos = [1500, 2000, 2500, 3000, 3500, 4000, 5000, 3800, 1234, 6500, 0];
+    var montos = [1500, 2000, 50, 3000, 3500, 4000, 5000, 3800, 1234, 6500, 0, 50];
     var valor = -1;
     for (let i = 0; i < codigos.length; i++) {
         if (codigoPostal === codigos[i]) {
